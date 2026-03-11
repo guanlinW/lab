@@ -149,12 +149,41 @@
   .hero-desc {
     color: rgba(255,255,255,0.75);
     font-size: 0.98rem;
-    max-width: 640px;
+    max-width: 700px;
     line-height: 1.85;
   }
   .hero-desc a {
     color: var(--accent2);
     text-decoration: none;
+  }
+  .hero-actions {
+    margin-top: 1.3rem;
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+  .hero-btn {
+    display: inline-block;
+    padding: 0.55rem 1rem;
+    border-radius: 6px;
+    font-size: 0.82rem;
+    font-weight: 700;
+    transition: 0.2s;
+  }
+  .hero-btn.primary {
+    background: var(--accent);
+    color: #fff;
+  }
+  .hero-btn.primary:hover {
+    background: #704B30;
+  }
+  .hero-btn.secondary {
+    border: 1px solid rgba(255,255,255,0.22);
+    color: #fff;
+  }
+  .hero-btn.secondary:hover {
+    border-color: var(--accent2);
+    color: var(--accent2);
   }
 
   /* SHARED */
@@ -181,11 +210,41 @@
   .ss {
     color: var(--text2);
     font-size: 0.95rem;
-    max-width: 580px;
+    max-width: 680px;
     line-height: 1.8;
   }
   .sh { margin-bottom: 2.5rem; }
   .alt { background: var(--hl); }
+
+  /* Highlights */
+  .highlight-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1rem;
+    margin: 1.6rem 0 2.2rem;
+  }
+  .highlight-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.2rem 1.25rem;
+  }
+  .highlight-card .k {
+    font-family: var(--fm);
+    font-size: 0.68rem;
+    color: var(--accent);
+    margin-bottom: 0.4rem;
+  }
+  .highlight-card h3 {
+    font-family: var(--fh);
+    font-size: 1rem;
+    margin-bottom: 0.35rem;
+  }
+  .highlight-card p {
+    color: var(--text2);
+    font-size: 0.84rem;
+    line-height: 1.7;
+  }
 
   /* RESEARCH */
   .rg {
@@ -354,6 +413,31 @@
   .mb .yr {
     color: var(--text2);
     font-size: 0.78rem;
+  }
+
+  /* Selected publications */
+  .selpub {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+  .selpub .sp {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1rem 1.1rem;
+  }
+  .selpub .sp h3 {
+    font-family: var(--fh);
+    font-size: 0.98rem;
+    line-height: 1.4;
+    margin-bottom: 0.35rem;
+  }
+  .selpub .sp p {
+    color: var(--text2);
+    font-size: 0.82rem;
+    line-height: 1.6;
   }
 
   /* PUBLICATIONS */
@@ -607,6 +691,11 @@
     color: rgba(255,255,255,0.6);
     text-decoration: none;
   }
+  .foot-note {
+    margin-top: 0.45rem;
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.5);
+  }
 
   .rv {
     opacity: 0;
@@ -677,13 +766,16 @@
   <div class="hero-body">
     <div class="hero-inner">
       <div class="hero-badge">Institute of Metabolism &amp; Integrative Biology</div>
-      <h1>Welcome to Wang Lab @ <em>Fudan University</em></h1>
+      <h1>Wang Lab @ <em>Fudan University</em></h1>
       <p class="hero-desc">
         We are a <a href="https://imib.fudan.edu.cn/imiben/af/a3/c23203a438179/page.htm" target="_blank">research group</a> at the
         <a href="https://imib.fudan.edu.cn/imiben/main.htm" target="_blank">Institute of Metabolism and Integrative Biology (IMIB), Fudan University</a>.
-        Our lab combines computational biology and state-of-the-art omics technologies (single-cell omics and spatial transcriptomics) to decode metabolism signatures and fingerprints from large-scale datasets.
-        We aim to understand the molecular basis of complex traits and diseases including obesity, fibrosis, and cancer through cutting-edge genomic and computational approaches.
+        Our lab integrates computational biology, artificial intelligence, single-cell omics, and spatial transcriptomics to decode metabolic programs, cellular states, and disease mechanisms across obesity, fibrosis, hematopoietic aging, and cancer.
       </p>
+      <div class="hero-actions">
+        <a href="#team" class="hero-btn primary">Meet the Team</a>
+        <a href="#publications" class="hero-btn secondary">Selected Publications</a>
+      </div>
     </div>
   </div>
 </section>
@@ -693,8 +785,29 @@
     <div class="sh rv">
       <div class="sl">Research</div>
       <h2 class="st">What We Do</h2>
-      <p class="ss">We focus on the following directions, combining state-of-the-art single-cell omics, long-read sequencing, spatial transcriptomics, and computational methods.</p>
+      <p class="ss">
+        We combine state-of-the-art single-cell omics, spatial transcriptomics, long-read sequencing, and computational modeling to investigate metabolism and disease biology at cellular resolution.
+      </p>
     </div>
+
+    <div class="highlight-grid rv">
+      <div class="highlight-card">
+        <div class="k">Theme 01</div>
+        <h3>Metabolism &amp; Complex Disease</h3>
+        <p>We study obesity, metabolic syndrome, fibrosis, and cancer through large-scale multi-omics analyses and integrative disease modeling.</p>
+      </div>
+      <div class="highlight-card">
+        <div class="k">Theme 02</div>
+        <h3>Single-cell &amp; Spatial Omics</h3>
+        <p>We build cellular atlases and dissect tissue ecosystems using single-cell transcriptomics, snRNA-seq, and spatial technologies.</p>
+      </div>
+      <div class="highlight-card">
+        <div class="k">Theme 03</div>
+        <h3>AI &amp; Computational Biology</h3>
+        <p>We develop algorithms and data integration frameworks to identify metabolic fingerprints, cellular states, and therapeutically relevant programs.</p>
+      </div>
+    </div>
+
     <div class="rg">
       <div class="rc rv">
         <h3>Decoding Metabolic Signatures Across Complex Diseases</h3>
@@ -709,6 +822,7 @@
         <p>Building novel algorithms and integrative frameworks to analyze and integrate multi-modal datasets across tissues, species, and conditions, enabling robust discoveries of metabolic fingerprints and biomarker signatures from large-scale single-cell and spatial datasets.</p>
       </div>
     </div>
+
     <div style="margin-top:3rem" class="rv">
       <h3 class="st" style="font-size:1.3rem">News</h3>
       <div class="nlist">
@@ -800,8 +914,23 @@
       <h2 class="st">Publications</h2>
       <p class="pn">(For a full list see <a href="https://scholar.google.com/citations?user=K1KoTZwAAAAJ" target="_blank">Google Scholar</a>)</p>
     </div>
-    <div class="pl">
 
+    <div class="selpub rv">
+      <div class="sp">
+        <h3>SURF: A self-supervised deep learning method for reference-free deconvolution in spatial transcriptomics</h3>
+        <p><strong>Advanced Science</strong>, 2025</p>
+      </div>
+      <div class="sp">
+        <h3>A proinflammatory stem cell niche drives myelofibrosis through a targetable galectin-1 axis</h3>
+        <p><strong>Science Translational Medicine</strong>, 2024</p>
+      </div>
+      <div class="sp">
+        <h3>An immune cell atlas reveals the dynamics of human macrophage specification during prenatal development</h3>
+        <p><strong>Cell</strong>, 2023</p>
+      </div>
+    </div>
+
+    <div class="pl">
       <div class="yr-div rv">2026</div>
       <div class="pub rv">
         <h4><a href="https://www.biorxiv.org/content/10.64898/2026.02.12.703707v1" target="_blank">A single-cell atlas and aging clock define biological age and risk-associated stem cell states in human hematopoiesis</a></h4>
@@ -904,7 +1033,6 @@
         <h4><a href="https://doi.org/10.1007/s11434-014-0696-1" target="_blank">Development of a RNAi-based release of insects carrying a dominant lethal (RIDL) system in <em>Drosophila melanogaster</em></a></h4>
         <p class="au">Lin X, <strong>Wang G</strong>. <span class="jn">Science Bulletin</span></p>
       </div>
-
     </div>
   </div>
 </section>
@@ -966,6 +1094,7 @@
   <p>&copy; 2025 Wang Lab. guanlin_wang &laquo;at&raquo; fudan.edu.cn</p>
   <p>We are a <a href="https://imib.fudan.edu.cn/imiben/af/a3/c23203a438179/page.htm" target="_blank">research group</a> at the <a href="https://imib.fudan.edu.cn/imiben/main.htm" target="_blank">Institute of Metabolism &amp; Integrative Biology, Fudan University</a>.</p>
   <p style="margin-top:0.4rem">D1313, Wangu Building, Fudan University, Shanghai, China (<a href="https://www.google.com/maps/place/Fudan+University" target="_blank">Maps</a>)</p>
+  <p class="foot-note">Last updated: 2026</p>
 </footer>
 
 <script>
