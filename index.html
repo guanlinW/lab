@@ -1,730 +1,181 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Wang Lab @ Fudan University</title>
-  <meta name="description" content="Wang Lab at Fudan University. We study metabolism, complex diseases, single-cell omics, spatial transcriptomics, and computational biology." />
-  <style>
-    :root{
-      --bg:#FAF9F6;
-      --surface:#FFFFFF;
-      --surface2:#F4F1EC;
-      --text:#222222;
-      --text2:#5E5A55;
-      --accent:#8B6F47;
-      --accent2:#C89B6D;
-      --dark:#2C2C2C;
-      --border:#E7E1D8;
-      --shadow:0 10px 30px rgba(44,44,44,.06);
-      --mw:1180px;
-      --nh:66px;
-      --fh: Georgia, "Times New Roman", serif;
-      --fm: Inter, Arial, Helvetica, sans-serif;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wang Lab @ Fudan University</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=Nunito+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #FAF9F6;
+    --surface: #FFFFFF;
+    --text: #2C2C2C;
+    --text2: #6B6B6B;
+    --accent: #8B5E3C;
+    --accent2: #B07A50;
+    --dark: #3A3A3A;
+    --border: #E8E4DF;
+    --hl: #F3EDE6;
+    --fh: 'Playfair Display', serif;
+    --fb: 'Nunito Sans', sans-serif;
+    --fm: 'JetBrains Mono', monospace;
+    --mw: 1060px;
+    --nh: 58px;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; scroll-padding-top: calc(var(--nh) + 16px); }
+  body { font-family: var(--fb); color: var(--text); background: var(--bg); line-height: 1.7; -webkit-font-smoothing: antialiased; }
 
-    *{box-sizing:border-box;margin:0;padding:0}
-    html{scroll-behavior:smooth}
-    body{
-      font-family:var(--fm);
-      color:var(--text);
-      background:var(--bg);
-      line-height:1.7;
-      -webkit-font-smoothing:antialiased;
-    }
-    img{max-width:100%;display:block}
+  /* NAV */
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; height: var(--nh); background: rgba(250,249,246,0.92); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: center; }
+  .nav-in { max-width: var(--mw); width: 100%; padding: 0 1.5rem; display: flex; align-items: center; justify-content: space-between; }
+  .nav-logo { font-family: var(--fh); font-size: 1.1rem; color: var(--accent); text-decoration: none; font-weight: 700; }
+  .nav-logo span { color: var(--dark); font-weight: 500; }
+  .nav-links { display: flex; gap: 1.5rem; list-style: none; }
+  .nav-links a { text-decoration: none; color: var(--text2); font-size: 0.84rem; font-weight: 600; letter-spacing: 0.02em; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--accent); }
+  .ham { display: none; background: none; border: none; cursor: pointer; padding: 4px; }
+  .ham span { display: block; width: 20px; height: 2px; background: var(--text); margin: 4px 0; }
 
-    .container{
-      max-width:var(--mw);
-      margin:0 auto;
-      padding:0 1.5rem;
-    }
+  /* HERO */
+  .hero { margin-top: var(--nh); position: relative; overflow: hidden; }
+  .hero-banner { width: 100%; height: 320px; object-fit: cover; display: block; }
+  .hero-banner-placeholder { width: 100%; height: 320px; background: linear-gradient(135deg, #D4C5B5 0%, #C4B09A 40%, #A8937A 100%); display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.4); font-family: var(--fm); font-size: 0.85rem; }
+  .hero-body { background: var(--dark); padding: 2.5rem 1.5rem 3rem; position: relative; }
+  .hero-inner { max-width: var(--mw); margin: 0 auto; position: relative; z-index: 1; }
+  .hero-badge { display: inline-block; padding: 0.3rem 1rem; border-radius: 100px; border: 1px solid rgba(255,255,255,0.15); color: rgba(255,255,255,0.6); font-size: 0.72rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 1rem; }
+  .hero h1 { font-family: var(--fh); font-size: clamp(1.8rem, 4vw, 2.8rem); color: #fff; line-height: 1.25; margin-bottom: 0.8rem; }
+  .hero h1 em { color: var(--accent2); font-style: italic; }
+  .hero-desc { color: rgba(255,255,255,0.75); font-size: 0.98rem; max-width: 640px; line-height: 1.85; }
+  .hero-desc a { color: var(--accent2); text-decoration: none; }
+  a { text-decoration: none; }
 
-    section{
-      padding:4.6rem 0;
-    }
+  /* SHARED */
+  section { padding: 3.5rem 1.5rem; }
+  .container { max-width: var(--mw); margin: 0 auto; }
+  .sl { font-family: var(--fm); font-size: 0.68rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.14em; color: var(--accent); margin-bottom: 0.4rem; }
+  .st { font-family: var(--fh); font-size: clamp(1.5rem, 3vw, 2.1rem); margin-bottom: 0.6rem; line-height: 1.3; }
+  .ss { color: var(--text2); font-size: 0.95rem; max-width: 580px; line-height: 1.8; }
+  .sh { margin-bottom: 2.5rem; }
+  .alt { background: var(--hl); }
 
-    section.alt{
-      background:var(--surface2);
-      border-top:1px solid var(--border);
-      border-bottom:1px solid var(--border);
-    }
+  /* RESEARCH */
+  .rg { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.2rem; }
+  .rc { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 1.6rem; transition: transform 0.2s, box-shadow 0.2s; }
+  .rc:hover { transform: translateY(-2px); box-shadow: 0 6px 24px rgba(0,0,0,0.05); }
+  .rc .n { font-family: var(--fm); font-size: 0.68rem; color: var(--accent); margin-bottom: 0.6rem; }
+  .rc h3 { font-family: var(--fh); font-size: 1.1rem; margin-bottom: 0.5rem; }
+  .rc p { color: var(--text2); font-size: 0.88rem; line-height: 1.7; }
 
-    /* NAV */
-    nav{
-      position:fixed;
-      top:0;left:0;right:0;
-      z-index:1000;
-      height:var(--nh);
-      background:rgba(250,249,246,.92);
-      backdrop-filter:blur(14px);
-      -webkit-backdrop-filter:blur(14px);
-      border-bottom:1px solid var(--border);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-    }
-    .nav-in{
-      max-width:var(--mw);
-      width:100%;
-      padding:0 1.5rem;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-    }
-    .nav-logo{
-      font-family:var(--fh);
-      font-size:1.08rem;
-      color:var(--accent);
-      text-decoration:none;
-      font-weight:700;
-      letter-spacing:.01em;
-    }
-    .nav-logo span{color:var(--dark);font-weight:500}
-    .nav-links{
-      list-style:none;
-      display:flex;
-      gap:1.4rem;
-    }
-    .nav-links a{
-      text-decoration:none;
-      color:var(--text2);
-      font-size:.84rem;
-      font-weight:600;
-      transition:.2s;
-    }
-    .nav-links a:hover{color:var(--accent)}
-    .ham{
-      display:none;
-      background:none;
-      border:none;
-      cursor:pointer;
-      padding:4px;
-    }
-    .ham span{
-      display:block;
-      width:20px;
-      height:2px;
-      background:var(--text);
-      margin:4px 0;
-    }
+  /* NEWS */
+  .nlist { margin-top: 2rem; }
+  .ni { display: flex; gap: 1rem; padding: 0.6rem 0; border-bottom: 1px solid var(--border); font-size: 0.9rem; }
+  .nd { flex-shrink: 0; width: 100px; font-family: var(--fm); font-size: 0.75rem; color: var(--text2); padding-top: 2px; }
+  .nt strong { color: var(--accent); }
 
-    /* HERO */
-    .hero{
-      margin-top:var(--nh);
-      position:relative;
-      overflow:hidden;
-      padding:0;
-    }
-    .hero-banner{
-      width:100%;
-      height:360px;
-      object-fit:cover;
-      display:block;
-    }
-    .hero-body{
-      background:linear-gradient(180deg, #2C2C2C 0%, #343434 100%);
-      padding:2.8rem 1.5rem 3.2rem;
-      position:relative;
-    }
-    .hero-inner{
-      max-width:var(--mw);
-      margin:0 auto;
-    }
-    .hero-badge{
-      display:inline-block;
-      padding:.32rem 1rem;
-      border-radius:100px;
-      border:1px solid rgba(255,255,255,.16);
-      color:rgba(255,255,255,.66);
-      font-size:.72rem;
-      font-weight:700;
-      letter-spacing:.1em;
-      text-transform:uppercase;
-      margin-bottom:1rem;
-    }
-    .hero h1{
-      font-family:var(--fh);
-      font-size:clamp(2rem,4vw,3rem);
-      color:#fff;
-      line-height:1.22;
-      margin-bottom:.8rem;
-    }
-    .hero h1 em{
-      color:var(--accent2);
-      font-style:italic;
-    }
-    .hero-desc{
-      color:rgba(255,255,255,.78);
-      font-size:1rem;
-      max-width:760px;
-      line-height:1.85;
-    }
-    .hero-desc a{
-      color:var(--accent2);
-      text-decoration:none;
-    }
-    .hero-desc a:hover{text-decoration:underline}
-    .hero-actions{
-      display:flex;
-      gap:.8rem;
-      flex-wrap:wrap;
-      margin-top:1.4rem;
-    }
-    .btn{
-      display:inline-block;
-      text-decoration:none;
-      padding:.78rem 1.15rem;
-      border-radius:999px;
-      font-size:.86rem;
-      font-weight:700;
-      transition:.2s;
-      border:1px solid transparent;
-    }
-    .btn-primary{
-      background:var(--accent2);
-      color:#fff;
-    }
-    .btn-primary:hover{filter:brightness(.95)}
-    .btn-secondary{
-      border-color:rgba(255,255,255,.18);
-      color:#fff;
-      background:transparent;
-    }
-    .btn-secondary:hover{
-      border-color:var(--accent2);
-      color:var(--accent2);
-    }
+  /* TEAM */
+  .pi-card { display: flex; gap: 2rem; align-items: center; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 2rem; margin-bottom: 2.5rem; }
+  .pi-av { flex-shrink: 0; width: 130px; height: 130px; border-radius: 50%; background: linear-gradient(135deg, var(--accent), var(--accent2)); display: flex; align-items: center; justify-content: center; font-family: var(--fh); font-size: 2.6rem; color: #fff; overflow: hidden; }
+  .pi-av img { width: 100%; height: 100%; object-fit: cover; }
+  .pi-m h3 { font-family: var(--fh); font-size: 1.35rem; margin-bottom: 0.15rem; }
+  .pi-m .role { color: var(--accent); font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 0.6rem; }
+  .pi-m p { color: var(--text2); font-size: 0.88rem; line-height: 1.75; }
+  .pi-m .links { display: flex; gap: 0.5rem; margin-top: 0.7rem; flex-wrap: wrap; }
+  .pi-m .links a { padding: 0.3rem 0.8rem; border-radius: 4px; font-size: 0.78rem; font-weight: 600; text-decoration: none; border: 1px solid var(--border); color: var(--text2); transition: 0.2s; }
+  .pi-m .links a:hover { border-color: var(--accent); color: var(--accent); }
+  .gl { font-family: var(--fh); font-size: 1.15rem; color: var(--accent); padding-bottom: 0.35rem; border-bottom: 2px solid var(--border); margin-bottom: 1.2rem; }
+  .tg { display: grid; grid-template-columns: repeat(auto-fill, minmax(145px, 1fr)); gap: 1.4rem; margin-bottom: 2.2rem; }
+  .mb { text-align: center; }
+  .mb .av { width: 100px; height: 100px; border-radius: 50%; margin: 0 auto 0.6rem; background: linear-gradient(135deg, var(--accent), var(--accent2)); display: flex; align-items: center; justify-content: center; font-family: var(--fh); font-size: 1.4rem; color: #fff; border: 3px solid var(--surface); box-shadow: 0 2px 12px rgba(0,0,0,0.06); overflow: hidden; }
+  .mb .av img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
+  .mb h4 { font-family: var(--fh); font-size: 0.9rem; margin-bottom: 0.1rem; }
+  .mb .role { color: var(--accent); font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; }
+  .mb .yr { color: var(--text2); font-size: 0.78rem; }
 
-    /* SECTION HEAD */
-    .sh{margin-bottom:2rem}
-    .sl{
-      color:var(--accent);
-      text-transform:uppercase;
-      letter-spacing:.12em;
-      font-size:.72rem;
-      font-weight:800;
-      margin-bottom:.45rem;
-    }
-    .st{
-      font-family:var(--fh);
-      font-size:clamp(1.55rem,2.5vw,2.2rem);
-      line-height:1.2;
-      margin-bottom:.55rem;
-    }
-    .ss{
-      color:var(--text2);
-      max-width:760px;
-      font-size:.95rem;
-    }
+  /* PUBLICATIONS */
+  .pn { color: var(--text2); font-size: 0.88rem; margin-bottom: 1.5rem; }
+  .pn a { color: var(--accent); text-decoration: none; font-weight: 600; }
+  .pn a:hover { color: var(--accent2); }
+  .pl { display: flex; flex-direction: column; gap: 0.7rem; }
+  .yr-div { font-family: var(--fm); font-size: 0.82rem; font-weight: 600; color: var(--accent); letter-spacing: 0.06em; padding: 0.8rem 0 0.3rem; border-bottom: 2px solid var(--accent); margin-top: 0.5rem; }
+  .pub { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 1.1rem 1.4rem; transition: transform 0.2s; }
+  .pub:hover { transform: translateX(3px); }
+  .pub h4 { font-family: var(--fh); font-size: 0.95rem; line-height: 1.4; margin-bottom: 0.2rem; }
+  .pub h4 a { color: var(--text); }
+  .pub h4 a:hover { color: var(--accent); }
+  .pub .au { color: var(--text2); font-size: 0.82rem; line-height: 1.5; }
+  .pub .au strong { color: var(--accent); font-weight: 700; }
+  .pub .jn { font-weight: 700; color: var(--dark); font-style: italic; }
+  .pub .meta { display: flex; gap: 0.5rem; margin-top: 0.3rem; flex-wrap: wrap; align-items: center; }
+  .pub .tag { font-size: 0.65rem; padding: 0.1rem 0.4rem; border-radius: 3px; background: #F0EAE2; color: var(--accent); font-weight: 600; }
 
-    /* HIGHLIGHTS */
-    .hl{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-      gap:1.2rem;
-      margin-top:1.5rem;
-    }
-    .hc{
-      background:var(--surface);
-      border:1px solid var(--border);
-      border-radius:16px;
-      padding:1.4rem;
-      box-shadow:var(--shadow);
-    }
-    .hc .tag{
-      color:var(--accent);
-      font-size:.72rem;
-      font-weight:800;
-      letter-spacing:.08em;
-      text-transform:uppercase;
-      margin-bottom:.55rem;
-    }
-    .hc h3{
-      font-family:var(--fh);
-      font-size:1.12rem;
-      margin-bottom:.45rem;
-    }
-    .hc p{
-      color:var(--text2);
-      font-size:.9rem;
-      line-height:1.75;
-    }
+  /* POSITIONS */
+  .pos { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 1.6rem; margin-bottom: 1rem; }
+  .pos h3 { font-family: var(--fh); font-size: 1.05rem; margin-bottom: 0.4rem; }
+  .pos p { color: var(--text2); font-size: 0.9rem; line-height: 1.75; }
+  .pos .ap { display: inline-block; margin-top: 0.8rem; padding: 0.4rem 1.2rem; border-radius: 5px; background: var(--accent); color: #fff; text-decoration: none; font-size: 0.82rem; font-weight: 600; transition: background 0.2s; }
+  .pos .ap:hover { background: #704B30; }
 
-    /* RESEARCH */
-    .rg{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-      gap:1.2rem;
-      margin-top:1.3rem;
-    }
-    .rc{
-      background:var(--surface);
-      border:1px solid var(--border);
-      border-radius:16px;
-      padding:1.5rem;
-      transition:.2s;
-      box-shadow:var(--shadow);
-    }
-    .rc:hover{
-      transform:translateY(-3px);
-    }
-    .rc .n{
-      font-family:var(--fm);
-      font-size:.68rem;
-      color:var(--accent);
-      margin-bottom:.55rem;
-      text-transform:uppercase;
-      letter-spacing:.08em;
-      font-weight:800;
-    }
-    .rc h3{
-      font-family:var(--fh);
-      font-size:1.1rem;
-      margin-bottom:.5rem;
-    }
-    .rc p{
-      color:var(--text2);
-      font-size:.9rem;
-      line-height:1.8;
-    }
+  /* FUN */
+  .gg { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 1rem; }
+  .gi { border-radius: 8px; overflow: hidden; aspect-ratio: 4/3; background: var(--hl); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; color: var(--text2); font-size: 0.82rem; font-family: var(--fm); position: relative; transition: transform 0.2s; }
+  .gi:hover { transform: scale(1.02); }
+  .gi img { width: 100%; height: 100%; object-fit: cover; position: absolute; inset: 0; }
+  .gi .cap { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(0,0,0,0.6)); color: #fff; padding: 1.5rem 0.8rem 0.6rem; font-size: 0.8rem; font-family: var(--fb); }
 
-    /* NEWS */
-    .nlist{
-      margin-top:1.6rem;
-      background:var(--surface);
-      border:1px solid var(--border);
-      border-radius:16px;
-      padding:1rem 1.2rem;
-      box-shadow:var(--shadow);
-    }
-    .ni{
-      display:flex;
-      gap:1rem;
-      padding:.8rem 0;
-      border-bottom:1px solid var(--border);
-      font-size:.92rem;
-    }
-    .ni:last-child{border-bottom:none}
-    .nd{
-      flex-shrink:0;
-      width:110px;
-      font-family:var(--fm);
-      font-size:.76rem;
-      color:var(--text2);
-      padding-top:2px;
-      font-weight:700;
-    }
-    .nt strong{color:var(--accent)}
+  /* SOFTWARE */
+  .sw { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 1.6rem; margin-bottom: 1rem; display: flex; gap: 1.2rem; align-items: flex-start; }
+  .sw-i { flex-shrink: 0; width: 44px; height: 44px; border-radius: 8px; background: var(--hl); display: flex; align-items: center; justify-content: center; font-family: var(--fm); font-size: 0.8rem; font-weight: 700; color: var(--accent); }
+  .sw h3 { font-family: var(--fh); font-size: 1.05rem; margin-bottom: 0.3rem; }
+  .sw p { color: var(--text2); font-size: 0.88rem; line-height: 1.7; }
+  .sw-l { display: flex; gap: 0.5rem; margin-top: 0.6rem; }
+  .sw-l a { padding: 0.25rem 0.7rem; border-radius: 4px; font-size: 0.76rem; font-weight: 600; text-decoration: none; border: 1px solid var(--border); color: var(--text2); transition: 0.2s; }
+  .sw-l a:hover { border-color: var(--accent); color: var(--accent); }
 
-    /* TEAM */
-    .pi-card{
-      display:flex;
-      gap:2rem;
-      align-items:center;
-      background:var(--surface);
-      border:1px solid var(--border);
-      border-radius:18px;
-      padding:2rem;
-      margin-bottom:2.4rem;
-      box-shadow:var(--shadow);
-    }
-    .pi-av{
-      flex-shrink:0;
-      width:150px;
-      height:150px;
-      border-radius:50%;
-      overflow:hidden;
-      background:linear-gradient(135deg,var(--accent),var(--accent2));
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      color:#fff;
-      font-family:var(--fh);
-      font-size:2.4rem;
-    }
-    .pi-av img{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-    }
-    .pi-m h3{
-      font-family:var(--fh);
-      font-size:1.45rem;
-      margin-bottom:.15rem;
-    }
-    .pi-m .role{
-      color:var(--accent);
-      font-size:.78rem;
-      font-weight:800;
-      text-transform:uppercase;
-      letter-spacing:.08em;
-      margin-bottom:.6rem;
-    }
-    .pi-m p{
-      color:var(--text2);
-      font-size:.9rem;
-      line-height:1.8;
-    }
-    .pi-m .links{
-      display:flex;
-      gap:.55rem;
-      flex-wrap:wrap;
-      margin-top:.9rem;
-    }
-    .pi-m .links a{
-      padding:.38rem .85rem;
-      border-radius:999px;
-      font-size:.78rem;
-      font-weight:700;
-      text-decoration:none;
-      border:1px solid var(--border);
-      color:var(--text2);
-      transition:.2s;
-      background:var(--surface2);
-    }
-    .pi-m .links a:hover{
-      border-color:var(--accent);
-      color:var(--accent);
-    }
+  /* CONTACT */
+  #contact { background: var(--dark); color: #fff; }
+  #contact .sl { color: var(--accent2); }
+  #contact .st { color: #fff; }
+  .cg { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 1.5rem; }
+  .ci { display: flex; gap: 0.8rem; align-items: flex-start; }
+  .ci-i { flex-shrink: 0; width: 36px; height: 36px; border-radius: 6px; background: rgba(255,255,255,0.08); display: flex; align-items: center; justify-content: center; font-family: var(--fm); font-size: 0.8rem; color: var(--accent2); font-weight: 700; }
+  .ci h4 { font-family: var(--fh); font-size: 0.95rem; margin-bottom: 0.15rem; }
+  .ci p { color: rgba(255,255,255,0.6); font-size: 0.85rem; line-height: 1.6; }
+  .ci a { color: var(--accent2); text-decoration: none; }
+  .ci a:hover { color: #D4956A; }
 
-    .gl{
-      font-family:var(--fh);
-      font-size:1.18rem;
-      margin:2rem 0 .9rem;
-    }
-    .tg{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-      gap:1.1rem;
-    }
-    .mb{
-      background:var(--surface);
-      border:1px solid var(--border);
-      border-radius:16px;
-      padding:1.25rem 1rem 1.1rem;
-      text-align:center;
-      box-shadow:var(--shadow);
-      transition:.2s;
-    }
-    .mb:hover{
-      transform:translateY(-3px);
-    }
-    .mb .av{
-      width:96px;
-      height:96px;
-      margin:0 auto .8rem;
-      border-radius:50%;
-      overflow:hidden;
-      background:linear-gradient(135deg,var(--accent),var(--accent2));
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      color:#fff;
-      font-family:var(--fh);
-      font-size:1.2rem;
-    }
-    .mb .av img{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-    }
-    .mb h4{
-      font-family:var(--fh);
-      font-size:1rem;
-      margin-bottom:.2rem;
-    }
-    .mb .role{
-      color:var(--accent);
-      font-size:.72rem;
-      text-transform:uppercase;
-      letter-spacing:.07em;
-      font-weight:800;
-      margin-bottom:.2rem;
-    }
-    .mb .yr{
-      color:var(--text2);
-      font-size:.83rem;
-      line-height:1.55;
-    }
+  /* FOOTER */
+  footer { background: #2C2C2C; color: rgba(255,255,255,0.4); text-align: center; padding: 1.5rem; font-size: 0.78rem; }
+  footer a { color: rgba(255,255,255,0.6); text-decoration: none; }
 
-    /* PUBLICATIONS */
-    .pub-note{
-      color:var(--text2);
-      margin:.3rem 0 1.4rem;
-      font-size:.9rem;
-    }
-    .pub-group{
-      margin-top:1.6rem;
-    }
-    .yr-div{
-      font-family:var(--fh);
-      font-size:1.1rem;
-      color:var(--accent);
-      margin:1.2rem 0 .7rem;
-    }
-    .pub{
-      background:var(--surface);
-      border:1px solid var(--border);
-      border-radius:14px;
-      padding:1rem 1.1rem;
-      margin-bottom:.8rem;
-      box-shadow:var(--shadow);
-    }
-    .pub h4{
-      font-size:1rem;
-      line-height:1.55;
-      margin-bottom:.28rem;
-      font-weight:700;
-    }
-    .pub h4 a{
-      color:var(--text);
-      text-decoration:none;
-    }
-    .pub h4 a:hover{color:var(--accent)}
-    .pub .au{
-      color:var(--text2);
-      font-size:.88rem;
-    }
-    .pub .jn{
-      color:var(--accent);
-      font-weight:700;
-    }
+  .rv { opacity: 0; transform: translateY(20px); transition: opacity 0.5s, transform 0.5s; }
+  .rv.vis { opacity: 1; transform: translateY(0); }
 
-    /* POSITIONS */
-    .pos{
-      background:var(--surface);
-      border:1px solid var(--border);
-      border-radius:16px;
-      padding:1.4rem;
-      margin-bottom:1rem;
-      box-shadow:var(--shadow);
-    }
-    .pos h3{
-      font-family:var(--fh);
-      font-size:1.12rem;
-      margin-bottom:.45rem;
-    }
-    .pos p{
-      color:var(--text2);
-      font-size:.92rem;
-      line-height:1.8;
-      margin-bottom:.85rem;
-    }
-    .ap{
-      display:inline-block;
-      text-decoration:none;
-      padding:.65rem 1rem;
-      border-radius:999px;
-      background:var(--accent);
-      color:#fff;
-      font-size:.84rem;
-      font-weight:700;
-    }
-    .ap:hover{filter:brightness(.96)}
-
-    /* GALLERY */
-    .gg{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-      gap:1rem;
-      margin-top:1.3rem;
-    }
-    .gi{
-      background:var(--surface);
-      border:1px solid var(--border);
-      border-radius:16px;
-      overflow:hidden;
-      box-shadow:var(--shadow);
-    }
-    .gi img{
-      width:100%;
-      height:210px;
-      object-fit:cover;
-      display:block;
-    }
-    .gi .cap{
-      padding:.85rem 1rem;
-      color:var(--text2);
-      font-size:.88rem;
-    }
-
-    /* SOFTWARE */
-    .sw{
-      display:flex;
-      gap:1rem;
-      background:var(--surface);
-      border:1px solid var(--border);
-      border-radius:16px;
-      padding:1.25rem;
-      margin-bottom:1rem;
-      box-shadow:var(--shadow);
-    }
-    .sw-i{
-      flex-shrink:0;
-      width:48px;
-      height:48px;
-      border-radius:12px;
-      background:var(--surface2);
-      color:var(--accent);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      font-weight:800;
-      border:1px solid var(--border);
-    }
-    .sw h3{
-      font-family:var(--fh);
-      font-size:1.08rem;
-      margin-bottom:.3rem;
-    }
-    .sw p{
-      color:var(--text2);
-      font-size:.9rem;
-      line-height:1.75;
-      margin-bottom:.7rem;
-    }
-    .sw-l{
-      display:flex;
-      gap:.6rem;
-      flex-wrap:wrap;
-    }
-    .sw-l a{
-      text-decoration:none;
-      font-size:.8rem;
-      font-weight:700;
-      color:var(--accent);
-      border:1px solid var(--border);
-      padding:.35rem .8rem;
-      border-radius:999px;
-      background:var(--surface2);
-    }
-    .sw-l a:hover{
-      border-color:var(--accent);
-    }
-
-    /* CONTACT */
-    #contact{
-      background:var(--dark);
-      color:#fff;
-    }
-    #contact .sl{color:var(--accent2)}
-    #contact .st{color:#fff}
-    #contact .ss{color:rgba(255,255,255,.65)}
-    .cg{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:2rem;
-      margin-top:1.5rem;
-    }
-    .ci{
-      display:flex;
-      gap:.9rem;
-      align-items:flex-start;
-    }
-    .ci-i{
-      flex-shrink:0;
-      width:40px;
-      height:40px;
-      border-radius:10px;
-      background:rgba(255,255,255,.08);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      font-size:.85rem;
-      color:var(--accent2);
-      font-weight:800;
-    }
-    .ci h4{
-      font-family:var(--fh);
-      font-size:1rem;
-      margin-bottom:.12rem;
-    }
-    .ci p{
-      color:rgba(255,255,255,.65);
-      font-size:.9rem;
-      line-height:1.7;
-    }
-    .ci a{
-      color:var(--accent2);
-      text-decoration:none;
-    }
-    .ci a:hover{text-decoration:underline}
-    .contact-actions{
-      margin-top:1rem;
-      display:flex;
-      gap:.7rem;
-      flex-wrap:wrap;
-    }
-
-    /* FOOTER */
-    footer{
-      background:#242424;
-      color:rgba(255,255,255,.45);
-      text-align:center;
-      padding:1.5rem;
-      font-size:.8rem;
-      line-height:1.8;
-    }
-    footer a{
-      color:rgba(255,255,255,.65);
-      text-decoration:none;
-    }
-    footer a:hover{text-decoration:underline}
-
-    /* REVEAL */
-    .rv{
-      opacity:0;
-      transform:translateY(20px);
-      transition:opacity .5s, transform .5s;
-    }
-    .rv.vis{
-      opacity:1;
-      transform:translateY(0);
-    }
-
-    @media (max-width:768px){
-      .nav-links{display:none}
-      .ham{display:block}
-      .nav-links.open{
-        display:flex;
-        flex-direction:column;
-        position:absolute;
-        top:var(--nh);
-        left:0;
-        right:0;
-        background:var(--bg);
-        padding:1.2rem 1.5rem;
-        gap:.8rem;
-        border-bottom:1px solid var(--border);
-      }
-      .hero-banner{height:220px}
-      .hero-body{padding:2rem 1.2rem 2.4rem}
-      .pi-card{
-        flex-direction:column;
-        text-align:center;
-        gap:1.2rem;
-      }
-      .pi-m .links{justify-content:center}
-      .cg{grid-template-columns:1fr}
-      .sw{flex-direction:column}
-    }
-  </style>
+  @media (max-width: 768px) {
+    .nav-links { display: none; } .ham { display: block; }
+    .nav-links.open { display: flex; flex-direction: column; position: absolute; top: var(--nh); left: 0; right: 0; background: var(--bg); padding: 1.2rem 1.5rem; gap: 0.8rem; border-bottom: 1px solid var(--border); }
+    .pi-card { flex-direction: column; text-align: center; gap: 1.2rem; } .pi-m .links { justify-content: center; }
+    .cg { grid-template-columns: 1fr; }
+    .tg { grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 1rem; }
+    .mb .av { width: 80px; height: 80px; font-size: 1.1rem; }
+    .hero-banner-placeholder, .hero-banner { height: 200px; }
+  }
+</style>
 </head>
 <body>
 
 <nav>
   <div class="nav-in">
     <a href="#home" class="nav-logo">Wang Lab <span>@ Fudan</span></a>
-    <button class="ham" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">
-      <span></span><span></span><span></span>
-    </button>
+    <button class="ham" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu"><span></span><span></span><span></span></button>
     <ul class="nav-links">
       <li><a href="#home" onclick="cm()">Home</a></li>
       <li><a href="#team" onclick="cm()">Team</a></li>
       <li><a href="#publications" onclick="cm()">Publications</a></li>
       <li><a href="#positions" onclick="cm()">Open Positions</a></li>
-      <li><a href="#fun" onclick="cm()">Gallery</a></li>
+      <li><a href="#fun" onclick="cm()">Fun</a></li>
       <li><a href="#software" onclick="cm()">Software</a></li>
       <li><a href="#contact" onclick="cm()">Contact</a></li>
     </ul>
@@ -733,7 +184,7 @@
 
 <!-- HOME -->
 <section class="hero" id="home">
-  <img src="photos/banner.jpg" alt="Wang Lab banner" class="hero-banner">
+  <div class="hero-banner-placeholder">[ Add your lab banner: photos/banner.jpg ]</div>
   <div class="hero-body">
     <div class="hero-inner">
       <div class="hero-badge">Institute of Metabolism &amp; Integrative Biology</div>
@@ -741,83 +192,32 @@
       <p class="hero-desc">
         We are a <a href="https://imib.fudan.edu.cn/imiben/af/a3/c23203a438179/page.htm" target="_blank">research group</a> at the
         <a href="https://imib.fudan.edu.cn/imiben/main.htm" target="_blank">Institute of Metabolism and Integrative Biology (IMIB), Fudan University</a>.
-        Our lab combines computational biology, single-cell omics, spatial transcriptomics, and artificial intelligence to decode metabolism signatures and molecular programs across complex human diseases. We aim to uncover the mechanistic basis of obesity, fibrosis, hematopoietic aging, and cancer through integrative multi-omics and scalable data-driven models.
+        Our lab combines computational biology and state-of-the-art omics technologies (single-cell omics and spatial transcriptomics) to decode metabolism signatures and fingerprints from large-scale datasets.
+        We aim to understand the molecular basis of complex traits and diseases including obesity, fibrosis, and cancer through cutting-edge genomic and computational approaches.
       </p>
-      <div class="hero-actions">
-        <a href="#team" class="btn btn-primary">Meet the Team</a>
-        <a href="#positions" class="btn btn-secondary">Join the Lab</a>
-      </div>
     </div>
   </div>
 </section>
 
 <section id="home-research">
   <div class="container">
-    <div class="sh rv">
-      <div class="sl">Highlights</div>
-      <h2 class="st">Research Overview</h2>
-      <p class="ss">Our work lies at the interface of metabolism, omics technologies, and computational biology.</p>
-    </div>
-
-    <div class="hl rv">
-      <div class="hc">
-        <div class="tag">Direction 01</div>
-        <h3>Digital Metabolism</h3>
-        <p>We develop computational frameworks to quantify and model metabolic states from large-scale single-cell, spatial, and multi-omics datasets across tissues and diseases.</p>
-      </div>
-      <div class="hc">
-        <div class="tag">Direction 02</div>
-        <h3>Single-cell &amp; Spatial Atlases</h3>
-        <p>We build high-resolution reference atlases of adipose tissue, hematopoiesis, and disease ecosystems to identify cell states, trajectories, and microenvironmental interactions.</p>
-      </div>
-      <div class="hc">
-        <div class="tag">Direction 03</div>
-        <h3>AI for Complex Disease Biology</h3>
-        <p>We integrate machine learning, deep learning, and graph-based modeling with biological knowledge to discover actionable mechanisms in obesity, fibrosis, and cancer.</p>
-      </div>
-    </div>
-
-    <div class="sh rv" style="margin-top:3rem;">
-      <div class="sl">Research</div>
-      <h2 class="st">What We Do</h2>
+    <div class="sh rv"><div class="sl">Research</div><h2 class="st">What We Do</h2>
       <p class="ss">We focus on the following directions, combining state-of-the-art single-cell omics, long-read sequencing, spatial transcriptomics, and computational methods.</p>
     </div>
-
     <div class="rg">
-      <div class="rc rv">
-        <div class="n">Theme 1</div>
-        <h3>Decoding Metabolic Signatures Across Complex Diseases</h3>
-        <p>We apply multi-omics approaches to dissect the molecular underpinnings of obesity, metabolic disorders, fibrosis, and cancer. By integrating transcriptomic, spatial, and population-scale data, we identify metabolic reprogramming signatures and reveal potential therapeutic vulnerabilities.</p>
-      </div>
-      <div class="rc rv">
-        <div class="n">Theme 2</div>
-        <h3>Fibrosis and Tissue Remodeling</h3>
-        <p>Using single-cell and spatial technologies, we map the cellular ecosystems of fibrotic diseases, identify key driver populations, and characterize the signaling circuits that govern tissue remodeling and chronic pathology.</p>
-      </div>
-      <div class="rc rv">
-        <div class="n">Theme 3</div>
-        <h3>Computational Tools &amp; Data Integration</h3>
-        <p>We build novel algorithms and integrative frameworks for large-scale multi-modal data analysis, enabling robust discovery of disease-associated states, metabolism fingerprints, and biologically interpretable biomarkers.</p>
-      </div>
+      <div class="rc rv"><h3>Decoding Metabolic Signatures Across Complex Diseases</h3><p>Applying multi-omics approaches to dissect the molecular underpinnings of obesity, metabolic syndrome, and cancer. We leverage large-scale datasets to identify metabolic reprogramming signatures, uncover how metabolic dysregulation drives disease progression, and reveal potential therapeutic vulnerabilities.</p></div>
+      <div class="rc rv"><h3>Fibrosis Mechanisms</h3><p>Using single-cell and spatial technologies to map the cellular landscapes of fibrotic diseases, identifying key driver populations and therapeutic targets in tissue remodeling.</p></div>
+      <div class="rc rv"><h3>Computational Tools &amp; Data Integration</h3><p>Building novel algorithms and integrative frameworks to analyze and integrate multi-modal datasets across tissues, species, and conditions, enabling robust discoveries of metabolic fingerprints and biomarker signatures from large-scale single-cell and spatial datasets.</p></div>
     </div>
-
-    <div class="sh rv" style="margin-top:3rem;">
-      <div class="sl">News</div>
-      <h2 class="st">Recent Updates</h2>
-    </div>
-
-    <div class="nlist rv">
-      <div class="ni">
-        <div class="nd">2025</div>
-        <div class="nt"><strong>Wang Lab website launched.</strong> We are building an interdisciplinary platform integrating metabolism, multi-omics, and AI.</div>
-      </div>
-      <div class="ni">
-        <div class="nd">2025</div>
-        <div class="nt"><strong>SURF</strong> and our <strong>snRNA-seq analytical workflow</strong> continue to support scalable analysis of spatial and single-nucleus transcriptomics datasets.</div>
-      </div>
-      <div class="ni">
-        <div class="nd">Ongoing</div>
-        <div class="nt">We are actively recruiting motivated <strong>PhD students</strong>, <strong>postdocs</strong>, and <strong>visiting students</strong> with interests in computational biology, metabolism, and AI.</div>
+    <div style="margin-top:3rem" class="rv">
+      <h3 class="st" style="font-size:1.3rem">News</h3>
+      <div class="nlist">
+        <div class="ni"><div class="nd">2026</div><div class="nt">Welcome <strong>Nana Sun</strong> (PhD student)!</div></div>
+        <div class="ni"><div class="nd">2025</div><div class="nt">Congratulations to <strong>Pengwei Dong</strong> &mdash; awarded the National Scholarship for PhD students!</div></div>
+        <div class="ni"><div class="nd">2025</div><div class="nt">Welcome <strong>Junhao Cheng</strong> (undergraduate) and <strong>Shiqi Ao</strong> (Master student)!</div></div>
+        <div class="ni"><div class="nd">2024</div><div class="nt">Welcome <strong>Hongcheng Chen</strong> (MD-PhD) and <strong>Jianing Xu</strong> (Master student)!</div></div>
+        <div class="ni"><div class="nd">2023</div><div class="nt">Welcome <strong>Shitong Ding</strong> (PhD student) and <strong>Chenxiao Yu</strong> (PhD student)!</div></div>
+        <div class="ni"><div class="nd">Mar 2022</div><div class="nt">Lab established at IMIB, Fudan University. Welcome <strong>Pengwei Dong</strong> and <strong>Yifan Liang</strong> (PhD students)!</div></div>
       </div>
     </div>
   </div>
@@ -826,27 +226,13 @@
 <!-- TEAM -->
 <section id="team" class="alt">
   <div class="container">
-    <div class="sh rv">
-      <div class="sl">Team</div>
-      <h2 class="st">Lab Members</h2>
-      <p class="ss">We are an interdisciplinary team working at the interface of computational biology, metabolism, and multi-omics.</p>
-    </div>
-
+    <div class="sh rv"><div class="sl">Team</div><h2 class="st">Lab Members</h2></div>
     <div class="pi-card rv">
-      <div class="pi-av">
-        <img src="photos/guanlin-wang.jpg" alt="Dr. Guanlin Wang">
-      </div>
+      <div class="pi-av">GW</div>
       <div class="pi-m">
         <h3>Dr. Guanlin Wang</h3>
-        <div class="role">Principal Investigator · March 2022 &ndash;</div>
-        <p>
-          Ph.D. with Prof. John Speakman, Chinese Academy of Sciences<br>
-          Postdoctoral training with Prof. Adam Mead, MRC WIMM, University of Oxford<br>
-          Junior Research Fellow, Wolfson College, University of Oxford<br><br>
-          Research interests: metabolism, single-cell omics, spatial transcriptomics, artificial intelligence, and computational biology.<br>
-          Email: guanlin_wang &laquo;at&raquo; fudan.edu.cn<br>
-          Office: D1313, Wangu Building, Fudan University
-        </p>
+        <div class="role">Principal Investigator, March 2022 &ndash;</div>
+        <p>Ph.D. with Prof. John Speakman, Chinese Academy of Sciences<br>Postdoc with Prof. Adam Mead, MRC WIMM, University of Oxford<br>Junior Research Fellow, Wolfson College, University of Oxford<br><br>Email: guanlin_wang &laquo;at&raquo; fudan.edu.cn<br>Office: D1313, Wangu Building, Fudan University</p>
         <div class="links">
           <a href="https://scholar.google.com/citations?user=K1KoTZwAAAAJ" target="_blank">Google Scholar</a>
           <a href="https://imib.fudan.edu.cn/imiben/af/a3/c23203a438179/page.htm" target="_blank">IMIB Profile</a>
@@ -854,117 +240,137 @@
         </div>
       </div>
     </div>
-
     <h3 class="gl rv">PhD Students</h3>
     <div class="tg rv">
-      <div class="mb">
-        <div class="av"><img src="photos/pengwei-dong.jpg" alt="Pengwei Dong"></div>
-        <h4>Pengwei Dong</h4>
-        <div class="role">PhD Student</div>
-        <div class="yr">2022 &ndash;<br>Computational biology</div>
-      </div>
-      <div class="mb">
-        <div class="av"><img src="photos/yifan-liang.jpg" alt="Yifan Liang"></div>
-        <h4>Yifan Liang</h4>
-        <div class="role">PhD Student</div>
-        <div class="yr">2022 &ndash;<br>Single-cell omics</div>
-      </div>
-      <div class="mb">
-        <div class="av"><img src="photos/shitong-ding.jpg" alt="Shitong Ding"></div>
-        <h4>Shitong Ding</h4>
-        <div class="role">PhD Student</div>
-        <div class="yr">2023 &ndash;<br>Multi-omics analysis</div>
-      </div>
-      <div class="mb">
-        <div class="av"><img src="photos/chenxiao-yu.jpg" alt="Chenxiao Yu"></div>
-        <h4>Chenxiao Yu</h4>
-        <div class="role">PhD Student</div>
-        <div class="yr">2023 &ndash;<br>Spatial transcriptomics</div>
-      </div>
-      <div class="mb">
-        <div class="av"><img src="photos/nana-sun.jpg" alt="Nana Sun"></div>
-        <h4>Nana Sun</h4>
-        <div class="role">PhD Student</div>
-        <div class="yr">2026 &ndash;<br>Metabolism &amp; AI</div>
-      </div>
+      <div class="mb"><div class="av">PD</div><h4>Pengwei Dong</h4><div class="role">PhD Student</div><div class="yr">2022 &ndash;</div></div>
+      <div class="mb"><div class="av">YL</div><h4>Yifan Liang</h4><div class="role">PhD Student</div><div class="yr">2022 &ndash;</div></div>
+      <div class="mb"><div class="av">SD</div><h4>Shitong Ding</h4><div class="role">PhD Student</div><div class="yr">2023 &ndash;</div></div>
+      <div class="mb"><div class="av">CY</div><h4>Chenxiao Yu</h4><div class="role">PhD Student</div><div class="yr">2023 &ndash;</div></div>
+      <div class="mb"><div class="av">NS</div><h4>Nana Sun</h4><div class="role">PhD Student</div><div class="yr">2026 &ndash;</div></div>
     </div>
-
     <h3 class="gl rv">MD-PhD Student</h3>
-    <div class="tg rv">
-      <div class="mb">
-        <div class="av"><img src="photos/hongcheng-chen.jpg" alt="Hongcheng Chen"></div>
-        <h4>Hongcheng Chen</h4>
-        <div class="role">MD-PhD</div>
-        <div class="yr">2024 &ndash;<br>Clinical translation</div>
-      </div>
-    </div>
-
+    <div class="tg rv"><div class="mb"><div class="av">HC</div><h4>Hongcheng Chen</h4><div class="role">MD-PhD</div><div class="yr">2024 &ndash;</div></div></div>
     <h3 class="gl rv">Master Students</h3>
     <div class="tg rv">
-      <div class="mb">
-        <div class="av"><img src="photos/jianing-xu.jpg" alt="Jianing Xu"></div>
-        <h4>Jianing Xu</h4>
-        <div class="role">Master Student</div>
-        <div class="yr">2024 &ndash;<br>Bioinformatics</div>
-      </div>
-      <div class="mb">
-        <div class="av"><img src="photos/shiqi-ao.jpg" alt="Shiqi Ao"></div>
-        <h4>Shiqi Ao</h4>
-        <div class="role">Master Student</div>
-        <div class="yr">2025 &ndash;<br>Omics analysis</div>
-      </div>
+      <div class="mb"><div class="av">JX</div><h4>Jianing Xu</h4><div class="role">Master Student</div><div class="yr">2024 &ndash;</div></div>
+      <div class="mb"><div class="av">SA</div><h4>Shiqi Ao</h4><div class="role">Master Student</div><div class="yr">2025 &ndash;</div></div>
     </div>
-
     <h3 class="gl rv">Undergraduate Student</h3>
-    <div class="tg rv">
-      <div class="mb">
-        <div class="av"><img src="photos/junhao-cheng.jpg" alt="Junhao Cheng"></div>
-        <h4>Junhao Cheng</h4>
-        <div class="role">Undergraduate</div>
-        <div class="yr">2025 &ndash;<br>Research trainee</div>
-      </div>
-    </div>
+    <div class="tg rv"><div class="mb"><div class="av">JC</div><h4>Junhao Cheng</h4><div class="role">Undergraduate</div><div class="yr">2025 &ndash;</div></div></div>
   </div>
 </section>
 
 <!-- PUBLICATIONS -->
 <section id="publications">
   <div class="container">
-    <div class="sh rv">
-      <div class="sl">Publications</div>
-      <h2 class="st">Selected Publications</h2>
-      <p class="ss">Representative work from the Wang Lab and related collaborative research.</p>
+    <div class="sh rv"><div class="sl">Publications</div><h2 class="st">Publications</h2>
+      <p class="pn">(For a full list see <a href="https://scholar.google.com/citations?user=K1KoTZwAAAAJ" target="_blank">Google Scholar</a>)</p>
     </div>
+    <div class="pl">
 
-    <p class="pub-note rv">
-      For a full publication list, please visit <a href="https://scholar.google.com/citations?user=K1KoTZwAAAAJ" target="_blank" style="color:var(--accent); text-decoration:none;">Google Scholar</a>.
-    </p>
-
-    <div class="pub-group">
+      <div class="yr-div rv">2026</div>
       <div class="pub rv">
-        <h4><a href="https://advanced.onlinelibrary.wiley.com/doi/10.1002/advs.202505456" target="_blank">SURF: a self-supervised deep learning method for reference-free deconvolution in spatial transcriptomics</a></h4>
-        <p class="au"><strong>Wang G</strong> et al. <span class="jn">Advanced Science</span></p>
+        <h4><a href="https://www.biorxiv.org/content/10.64898/2026.02.12.703707v1" target="_blank">A single-cell atlas and aging clock define biological age and risk-associated stem cell states in human hematopoiesis</a></h4>
+        <p class="au">Chen H, Dong P, Xu J, <strong>Wang G*</strong>. <span class="jn">bioRxiv</span> (Preprint)</p>
+        <div class="meta"><span class="tag">Corresponding</span></div>
       </div>
 
+      <div class="yr-div rv">2025</div>
       <div class="pub rv">
-        <h4><a href="https://doi.org/10.1093/lifemeta/load021" target="_blank">Optimized upstream analytical workflow for single-nucleus transcriptomics in main metabolic tissues</a></h4>
-        <p class="au"><strong>Wang G</strong> et al. <span class="jn">Life Metabolism</span></p>
+        <h4><a href="https://advanced.onlinelibrary.wiley.com/doi/10.1002/advs.202505456" target="_blank">SURF: A self-supervised deep learning method for reference-free deconvolution in spatial transcriptomics</a></h4>
+        <p class="au">Liang Y, ..., <strong>Wang G*</strong>, Wang Y*, Guo Y*. <span class="jn">Advanced Science</span></p>
+        <div class="meta"><span class="tag">Corresponding</span></div>
+      </div>
+      <div class="pub rv">
+        <h4><a href="https://www.biorxiv.org/content/10.1101/2025.02.22.639604v1" target="_blank">Optimized upstream analytical workflow for single-nucleus transcriptomics in main metabolic tissues</a></h4>
+        <p class="au">Dong P, Ding S, <strong>Wang G*</strong>. <span class="jn">bioRxiv</span> (Preprint)</p>
+        <div class="meta"><span class="tag">Corresponding</span></div>
       </div>
 
+      <div class="yr-div rv">2024</div>
       <div class="pub rv">
-        <h4><a href="https://www.biorxiv.org/content/10.1101/2025.02.22.639604v1" target="_blank">An optimized analytical workflow for snRNA-seq in metabolically active tissues</a></h4>
-        <p class="au"><strong>Wang G</strong> et al. <span class="jn">bioRxiv</span></p>
+        <h4><a href="https://pubmed.ncbi.nlm.nih.gov/39383242/" target="_blank">A proinflammatory stem cell niche drives myelofibrosis through a targetable galectin-1 axis</a></h4>
+        <p class="au">Li R#, Colombo M#, <strong>Wang G</strong>#*, ..., Mead A*, Psaila B*. <span class="jn">Science Translational Medicine</span></p>
+        <div class="meta"><span class="tag">Co-first &amp; Corresponding</span></div>
+      </div>
+      <div class="pub rv">
+        <h4><a href="https://doi.org/10.1038/s41467-024-46589-x" target="_blank">Maternal dietary fat during lactation shapes single nucleus transcriptomic profile of postnatal offspring hypothalamus in a sexually dimorphic manner in mice</a></h4>
+        <p class="au">Huang Y#, Wang A#, Zhou W, ..., <strong>Wang G*</strong>, Speakman JR*. <span class="jn">Nature Communications</span></p>
+        <div class="meta"><span class="tag">Corresponding</span></div>
+      </div>
+      <div class="pub rv">
+        <h4><a href="https://doi.org/10.1016/j.it.2024.02.003" target="_blank">Approaches for studying human macrophages</a></h4>
+        <p class="au">Bao Y, <strong>Wang G*</strong>, Li H. <span class="jn">Trends in Immunology</span></p>
+        <div class="meta"><span class="tag">Corresponding</span></div>
       </div>
 
+      <div class="yr-div rv">2023</div>
       <div class="pub rv">
-        <h4><a href="https://doi.org/10.1038/s41556-022-01007-4" target="_blank">Single-cell and spatially resolved analysis of metabolic tissue biology</a></h4>
-        <p class="au">Collaborative work including <strong>Wang G</strong>. <span class="jn">Nature Cell Biology</span></p>
+        <h4><a href="https://doi.org/10.1016/j.cell.2023.08.019" target="_blank">An immune cell atlas reveals the dynamics of human macrophage specification during prenatal development</a></h4>
+        <p class="au">Wang Z, Wu Z, Wang H, Feng R, <strong>Wang G*</strong>, Li M, Wang SY, Chen X, Su Y, et al. <span class="jn">Cell</span></p>
+        <div class="meta"><span class="tag">Co-first &amp; Corresponding</span></div>
       </div>
 
+      <div class="yr-div rv">2022</div>
+      <div class="pub rv">
+        <h4><a href="https://doi.org/10.1016/j.cell.2022.01.012" target="_blank">A blood atlas of COVID-19 defines hallmarks of disease severity and specificity</a></h4>
+        <p class="au">COMBAT Consortium (including <strong>Wang G</strong>). <span class="jn">Cell</span></p>
+      </div>
+      <div class="pub rv">
+        <h4><a href="https://doi.org/10.1111/acel.13585" target="_blank">Effects of dietary macronutrients on the hematic transcriptome and serum metabolome in mice</a></h4>
+        <p class="au">Wu Y, Green CL, <strong>Wang G</strong>, Yang D, Li L, et al., Speakman JR*. <span class="jn">Ageing Cell</span></p>
+      </div>
+
+      <div class="yr-div rv">2021</div>
+      <div class="pub rv">
+        <h4><a href="https://doi.org/10.1016/j.celrep.2021.109698" target="_blank">Transitions in lineage specification and gene regulatory networks in hematopoietic stem/progenitor cells over human development</a></h4>
+        <p class="au">Roy A#,*, <strong>Wang G</strong>#, Iskander D, et al. <span class="jn">Cell Reports</span></p>
+        <div class="meta"><span class="tag">Co-first</span></div>
+      </div>
+      <div class="pub rv">
+        <h4><a href="https://doi.org/10.1126/scitranslmed.abf0113" target="_blank">Single-cell profiling of human bone marrow progenitors reveals mechanisms of failing erythropoiesis in Diamond-Blackfan anemia</a></h4>
+        <p class="au">Iskander D, <strong>Wang G</strong>, Heuston EF, et al., Karadimitris A*. <span class="jn">Science Translational Medicine</span></p>
+      </div>
+
+      <div class="yr-div rv">2020</div>
+      <div class="pub rv">
+        <h4><a href="https://doi.org/10.1016/j.molcel.2020.02.024" target="_blank">Single-cell analyses reveal megakaryocyte-biased hematopoiesis in myelofibrosis and identify mutant clone-specific targets</a></h4>
+        <p class="au">Psaila B#,*, <strong>Wang G</strong>#, Rodriguez-Meira A, et al. <span class="jn">Molecular Cell</span></p>
+        <div class="meta"><span class="tag">Co-first</span><span class="tag">Faculty Opinions</span></div>
+      </div>
+
+      <div class="yr-div rv">2019</div>
+      <div class="pub rv">
+        <h4><a href="https://doi.org/10.1016/j.celrep.2019.02.015" target="_blank">Microbiota depletion impairs thermogenesis of brown adipose tissue and browning of white adipose tissue</a></h4>
+        <p class="au">Li B#, Li L#, Li M#, Lam SM#, <strong>Wang G</strong>, et al., Speakman JR*. <span class="jn">Cell Reports</span></p>
+      </div>
+
+      <div class="yr-div rv">2018</div>
+      <div class="pub rv">
+        <h4><a href="https://doi.org/10.1016/j.cmet.2018.06.010" target="_blank">Dietary fat, but not protein or carbohydrate, regulates energy intake and causes adiposity in mice</a></h4>
+        <p class="au">Hu S#, Wang L#, Yang D#, ... <strong>Wang G</strong>, ... Speakman JR*. <span class="jn">Cell Metabolism</span></p>
+      </div>
+
+      <div class="yr-div rv">2017</div>
+      <div class="pub rv">
+        <h4><a href="https://doi.org/10.1186/s12966-017-0503-1" target="_blank">No seasonal variation in physical activity of Han Chinese living in Beijing</a></h4>
+        <p class="au"><strong>Wang G</strong>, Li B, Zhang X, Niu C, Li J, Li L, Speakman JR*. <span class="jn">International Journal of Behavioral Nutrition and Physical Activity</span></p>
+        <div class="meta"><span class="tag">First Author</span></div>
+      </div>
+
+      <div class="yr-div rv">2016</div>
+      <div class="pub rv">
+        <h4><a href="https://doi.org/10.1016/j.cmet.2016.08.014" target="_blank">Analysis of positive selection at SNPs associated with body mass index does not support the "thrifty gene" hypothesis</a></h4>
+        <p class="au"><strong>Wang G</strong>, Speakman JR*. <span class="jn">Cell Metabolism</span></p>
+        <div class="meta"><span class="tag">First Author</span><span class="tag">F1000 Recommended</span></div>
+      </div>
+
+      <div class="yr-div rv">2015</div>
       <div class="pub rv">
         <h4><a href="https://doi.org/10.1007/s11434-014-0696-1" target="_blank">Development of a RNAi-based release of insects carrying a dominant lethal (RIDL) system in <em>Drosophila melanogaster</em></a></h4>
         <p class="au">Lin X, <strong>Wang G</strong>. <span class="jn">Science Bulletin</span></p>
       </div>
+
     </div>
   </div>
 </section>
@@ -972,66 +378,26 @@
 <!-- OPEN POSITIONS -->
 <section id="positions" class="alt">
   <div class="container">
-    <div class="sh rv">
-      <div class="sl">Join Us</div>
-      <h2 class="st">Open Positions</h2>
-      <p class="ss">We are looking for passionate researchers to join our team.</p>
+    <div class="sh rv"><div class="sl">Join Us</div><h2 class="st">Open Positions</h2>
+      <p class="ss">We are looking for passionate new PhD students, Postdocs, and Research Assistants to join the team!</p>
     </div>
-
-    <div class="pos rv">
-      <h3>Postdoctoral Researcher</h3>
-      <p>We seek postdoctoral fellows with backgrounds in computational biology, bioinformatics, systems biology, machine learning, or related quantitative disciplines. Experience in single-cell or spatial omics analysis is highly valued.</p>
-      <a href="mailto:guanlin_wang@fudan.edu.cn" class="ap">Apply via Email</a>
-    </div>
-
-    <div class="pos rv">
-      <h3>PhD Students</h3>
-      <p>We welcome motivated PhD applicants through the Fudan University graduate program. Students with backgrounds in biology, medicine, computer science, mathematics, statistics, or engineering are encouraged to contact us.</p>
-      <a href="mailto:guanlin_wang@fudan.edu.cn" class="ap">Inquire via Email</a>
-    </div>
-
-    <div class="pos rv">
-      <h3>Research Assistants &amp; Visiting Students</h3>
-      <p>Short-term and long-term positions are available for visiting students and research assistants interested in computational biology, metabolism, and multi-omics data analysis.</p>
-      <a href="mailto:guanlin_wang@fudan.edu.cn" class="ap">Contact Us</a>
-    </div>
+    <div class="pos rv"><h3>Postdoctoral Researcher</h3><p>We are seeking postdocs with a background in computational biology, bioinformatics, or related fields. Experience with single-cell omics data analysis is preferred.</p><a href="mailto:guanlin_wang@fudan.edu.cn" class="ap">Apply via Email</a></div>
+    <div class="pos rv"><h3>PhD Students</h3><p>We welcome motivated PhD applicants through the Fudan University graduate program. Students with backgrounds in biology, computer science, statistics, or related quantitative fields are encouraged to reach out.</p><a href="mailto:guanlin_wang@fudan.edu.cn" class="ap">Inquire via Email</a></div>
+    <div class="pos rv"><h3>Research Assistants &amp; Visiting Students</h3><p>Short-term and long-term positions are available for research assistants and visiting students interested in computational biology and multi-omics analysis.</p><a href="mailto:guanlin_wang@fudan.edu.cn" class="ap">Contact Us</a></div>
   </div>
 </section>
 
 <!-- FUN -->
 <section id="fun">
   <div class="container">
-    <div class="sh rv">
-      <div class="sl">Gallery</div>
-      <h2 class="st">Life in the Wang Lab</h2>
-      <p class="ss">Work hard, think deeply, and enjoy science together.</p>
-    </div>
-
+    <div class="sh rv"><div class="sl">Fun</div><h2 class="st">Lab Gallery</h2><p class="ss">Life in the Wang Lab &mdash; work hard, play hard.</p></div>
     <div class="gg rv">
-      <div class="gi">
-        <img src="photos/group-photo.jpg" alt="Group photo">
-        <div class="cap">Group Photo</div>
-      </div>
-      <div class="gi">
-        <img src="photos/lab-dinner.jpg" alt="Lab dinner">
-        <div class="cap">Lab Dinner</div>
-      </div>
-      <div class="gi">
-        <img src="photos/conference.jpg" alt="Conference photo">
-        <div class="cap">Conference</div>
-      </div>
-      <div class="gi">
-        <img src="photos/lab-outing.jpg" alt="Lab outing">
-        <div class="cap">Lab Outing</div>
-      </div>
-      <div class="gi">
-        <img src="photos/celebration.jpg" alt="Celebration">
-        <div class="cap">Celebration</div>
-      </div>
-      <div class="gi">
-        <img src="photos/team-building.jpg" alt="Team building">
-        <div class="cap">Team Building</div>
-      </div>
+      <div class="gi">[ photos/group-photo.jpg ]</div>
+      <div class="gi">[ photos/lab-dinner.jpg ]</div>
+      <div class="gi">[ photos/conference.jpg ]</div>
+      <div class="gi">[ photos/lab-outing.jpg ]</div>
+      <div class="gi">[ photos/celebration.jpg ]</div>
+      <div class="gi">[ photos/team-building.jpg ]</div>
     </div>
   </div>
 </section>
@@ -1039,25 +405,33 @@
 <!-- SOFTWARE -->
 <section id="software" class="alt">
   <div class="container">
-    <div class="sh rv">
-      <div class="sl">Software</div>
-      <h2 class="st">Tools &amp; Software</h2>
-    </div>
+    <div class="sh rv"><div class="sl">Software</div><h2 class="st">Tools &amp; Software</h2></div>
+    <div class="sw rv"><div class="sw-i">&gt;_</div><div><h3>SURF</h3><p>A self-supervised deep learning method for reference-free deconvolution in spatial transcriptomics. SURF integrates high-dimensional gene data analysis with self-supervised deep learning to effectively model nonlinear gene interactions and leverage spot relationships.</p><div class="sw-l"><a href="https://github.com/metabomicslab/SURF" target="_blank">Source</a><a href="https://advanced.onlinelibrary.wiley.com/doi/10.1002/advs.202505456" target="_blank">Paper</a></div></div></div>
+    <div class="sw rv"><div class="sw-i">&gt;_</div><div><h3>snRNA-seq Workflow</h3><p>An optimized upstream analytical workflow for single-nucleus transcriptomics in main metabolic tissues (adipose tissue, muscle, liver, and hypothalamus). A standard protocol for researchers seeking to apply snRNA-seq to metabolic tissues.</p><div class="sw-l"><a href="https://metabomicslab.github.io/snRNAseq-analysis-workflow/" target="_blank">Website</a><a href="https://github.com/metabomicslab/snRNAseq-analysis-workflow" target="_blank">Source</a><a href="https://www.biorxiv.org/content/10.1101/2025.02.22.639604v1" target="_blank">Paper</a></div></div></div>
+  </div>
+</section>
 
-    <div class="sw rv">
-      <div class="sw-i">&gt;_</div>
-      <div>
-        <h3>SURF</h3>
-        <p>A self-supervised deep learning method for reference-free deconvolution in spatial transcriptomics. SURF integrates high-dimensional gene-expression modeling with self-supervised representation learning to resolve spot-level cell composition and states.</p>
-        <div class="sw-l">
-          <a href="https://github.com/metabomicslab/SURF" target="_blank">Source</a>
-          <a href="https://advanced.onlinelibrary.wiley.com/doi/10.1002/advs.202505456" target="_blank">Paper</a>
-        </div>
-      </div>
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <div class="sh rv"><div class="sl">Contact</div><h2 class="st">Get in Touch</h2></div>
+    <div class="cg rv">
+      <div class="ci"><div class="ci-i">@</div><div><h4>Email</h4><p>guanlin_wang &laquo;at&raquo; fudan.edu.cn</p></div></div>
+      <div class="ci"><div class="ci-i">&gt;</div><div><h4>Address</h4><p>D1313, Wangu Building<br>Institute of Metabolism &amp; Integrative Biology<br>Fudan University, Shanghai, China</p></div></div>
     </div>
+  </div>
+</section>
 
-    <div class="sw rv">
-      <div class="sw-i">&gt;_</div>
-      <div>
-        <h3>snRNA-seq Workflow</h3>
-        <p>An optimized upstream analytical workflow for single-nucleus transcriptomics in metabolically active tissues, including adipose tissue, muscle, liver, and hypothalamus.</p>
+<footer>
+  <p>&copy; 2025 Wang Lab. guanlin_wang &laquo;at&raquo; fudan.edu.cn</p>
+  <p>We are a <a href="https://imib.fudan.edu.cn/imiben/af/a3/c23203a438179/page.htm" target="_blank">research group</a> at the <a href="https://imib.fudan.edu.cn/imiben/main.htm" target="_blank">Institute of Metabolism &amp; Integrative Biology, Fudan University</a>.</p>
+  <p style="margin-top:0.4rem">D1313, Wangu Building, Fudan University, Shanghai, China (<a href="https://www.google.com/maps/place/Fudan+University" target="_blank">Maps</a>)</p>
+</footer>
+
+<script>
+function cm(){document.querySelector('.nav-links').classList.remove('open')}
+const o=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('vis')})},{threshold:.08,rootMargin:'0px 0px -30px 0px'});
+document.querySelectorAll('.rv').forEach(el=>o.observe(el));
+</script>
+</body>
+</html>
