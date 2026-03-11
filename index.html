@@ -33,8 +33,8 @@
   .nav-in { max-width: var(--mw); width: 100%; padding: 0 1.5rem; display: flex; align-items: center; justify-content: space-between; }
   .nav-logo { font-family: var(--fh); font-size: 1.1rem; color: var(--accent); text-decoration: none; font-weight: 700; }
   .nav-logo span { color: var(--dark); font-weight: 500; }
-  .nav-links { display: flex; gap: 1.5rem; list-style: none; }
-  .nav-links a { text-decoration: none; color: var(--text2); font-size: 0.84rem; font-weight: 600; letter-spacing: 0.02em; transition: color 0.2s; }
+  .nav-links { display: flex; gap: 1.2rem; list-style: none; flex-wrap: wrap; justify-content: flex-end; }
+  .nav-links a { text-decoration: none; color: var(--text2); font-size: 0.82rem; font-weight: 600; letter-spacing: 0.02em; transition: color 0.2s; }
   .nav-links a:hover { color: var(--accent); }
   .ham { display: none; background: none; border: none; cursor: pointer; padding: 4px; }
   .ham span { display: block; width: 20px; height: 2px; background: var(--text); margin: 4px 0; }
@@ -42,7 +42,6 @@
   /* HERO */
   .hero { margin-top: var(--nh); position: relative; overflow: hidden; }
   .hero-banner { width: 100%; height: 320px; object-fit: cover; display: block; }
-  .hero-banner-placeholder { width: 100%; height: 320px; background: linear-gradient(135deg, #D4C5B5 0%, #C4B09A 40%, #A8937A 100%); display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.4); font-family: var(--fm); font-size: 0.85rem; }
   .hero-body { background: var(--dark); padding: 2.5rem 1.5rem 3rem; position: relative; }
   .hero-inner { max-width: var(--mw); margin: 0 auto; position: relative; z-index: 1; }
   .hero-badge { display: inline-block; padding: 0.3rem 1rem; border-radius: 100px; border: 1px solid rgba(255,255,255,0.15); color: rgba(255,255,255,0.6); font-size: 0.72rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 1rem; }
@@ -118,7 +117,7 @@
   .pos .ap { display: inline-block; margin-top: 0.8rem; padding: 0.4rem 1.2rem; border-radius: 5px; background: var(--accent); color: #fff; text-decoration: none; font-size: 0.82rem; font-weight: 600; transition: background 0.2s; }
   .pos .ap:hover { background: #704B30; }
 
-  /* FUN */
+  /* GALLERY */
   .gg { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 1rem; }
   .gi { border-radius: 8px; overflow: hidden; aspect-ratio: 4/3; background: var(--hl); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; color: var(--text2); font-size: 0.82rem; font-family: var(--fm); position: relative; transition: transform 0.2s; }
   .gi:hover { transform: scale(1.02); }
@@ -130,7 +129,7 @@
   .sw-i { flex-shrink: 0; width: 44px; height: 44px; border-radius: 8px; background: var(--hl); display: flex; align-items: center; justify-content: center; font-family: var(--fm); font-size: 0.8rem; font-weight: 700; color: var(--accent); }
   .sw h3 { font-family: var(--fh); font-size: 1.05rem; margin-bottom: 0.3rem; }
   .sw p { color: var(--text2); font-size: 0.88rem; line-height: 1.7; }
-  .sw-l { display: flex; gap: 0.5rem; margin-top: 0.6rem; }
+  .sw-l { display: flex; gap: 0.5rem; margin-top: 0.6rem; flex-wrap: wrap; }
   .sw-l a { padding: 0.25rem 0.7rem; border-radius: 4px; font-size: 0.76rem; font-weight: 600; text-decoration: none; border: 1px solid var(--border); color: var(--text2); transition: 0.2s; }
   .sw-l a:hover { border-color: var(--accent); color: var(--accent); }
 
@@ -154,13 +153,15 @@
   .rv.vis { opacity: 1; transform: translateY(0); }
 
   @media (max-width: 768px) {
-    .nav-links { display: none; } .ham { display: block; }
+    .nav-links { display: none; }
+    .ham { display: block; }
     .nav-links.open { display: flex; flex-direction: column; position: absolute; top: var(--nh); left: 0; right: 0; background: var(--bg); padding: 1.2rem 1.5rem; gap: 0.8rem; border-bottom: 1px solid var(--border); }
-    .pi-card { flex-direction: column; text-align: center; gap: 1.2rem; } .pi-m .links { justify-content: center; }
+    .pi-card { flex-direction: column; text-align: center; gap: 1.2rem; }
+    .pi-m .links { justify-content: center; }
     .cg { grid-template-columns: 1fr; }
     .tg { grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 1rem; }
     .mb .av { width: 80px; height: 80px; font-size: 1.1rem; }
-    .hero-banner-placeholder, .hero-banner { height: 200px; }
+    .hero-banner { height: 200px; }
   }
 </style>
 </head>
@@ -173,9 +174,11 @@
     <ul class="nav-links">
       <li><a href="#home" onclick="cm()">Home</a></li>
       <li><a href="#team" onclick="cm()">Team</a></li>
+      <li><a href="#visiting" onclick="cm()">Visiting</a></li>
+      <li><a href="#alumni" onclick="cm()">Alumni</a></li>
       <li><a href="#publications" onclick="cm()">Publications</a></li>
       <li><a href="#positions" onclick="cm()">Open Positions</a></li>
-      <li><a href="#fun" onclick="cm()">Fun</a></li>
+      <li><a href="#gallery" onclick="cm()">Gallery</a></li>
       <li><a href="#software" onclick="cm()">Software</a></li>
       <li><a href="#contact" onclick="cm()">Contact</a></li>
     </ul>
@@ -184,7 +187,7 @@
 
 <!-- HOME -->
 <section class="hero" id="home">
-  <div class="hero-banner-placeholder">[ Add your lab banner: photos/banner.jpg ]</div>
+  <img src="photos/banner.jpg" alt="Wang Lab banner" class="hero-banner">
   <div class="hero-body">
     <div class="hero-inner">
       <div class="hero-badge">Institute of Metabolism &amp; Integrative Biology</div>
@@ -228,7 +231,7 @@
   <div class="container">
     <div class="sh rv"><div class="sl">Team</div><h2 class="st">Lab Members</h2></div>
     <div class="pi-card rv">
-      <div class="pi-av">GW</div>
+      <div class="pi-av"><img src="photos/guanlin-wang.jpg" alt="Dr. Guanlin Wang"></div>
       <div class="pi-m">
         <h3>Dr. Guanlin Wang</h3>
         <div class="role">Principal Investigator, March 2022 &ndash;</div>
@@ -240,23 +243,61 @@
         </div>
       </div>
     </div>
+
     <h3 class="gl rv">PhD Students</h3>
     <div class="tg rv">
-      <div class="mb"><div class="av">PD</div><h4>Pengwei Dong</h4><div class="role">PhD Student</div><div class="yr">2022 &ndash;</div></div>
-      <div class="mb"><div class="av">YL</div><h4>Yifan Liang</h4><div class="role">PhD Student</div><div class="yr">2022 &ndash;</div></div>
-      <div class="mb"><div class="av">SD</div><h4>Shitong Ding</h4><div class="role">PhD Student</div><div class="yr">2023 &ndash;</div></div>
-      <div class="mb"><div class="av">CY</div><h4>Chenxiao Yu</h4><div class="role">PhD Student</div><div class="yr">2023 &ndash;</div></div>
-      <div class="mb"><div class="av">NS</div><h4>Nana Sun</h4><div class="role">PhD Student</div><div class="yr">2026 &ndash;</div></div>
+      <div class="mb"><div class="av"><img src="photos/pengwei-dong.jpg" alt="Pengwei Dong"></div><h4>Pengwei Dong</h4><div class="role">PhD Student</div><div class="yr">2022 &ndash;</div></div>
+      <div class="mb"><div class="av"><img src="photos/yifan-liang.jpg" alt="Yifan Liang"></div><h4>Yifan Liang</h4><div class="role">PhD Student</div><div class="yr">2022 &ndash;</div></div>
+      <div class="mb"><div class="av"><img src="photos/shitong-ding.jpg" alt="Shitong Ding"></div><h4>Shitong Ding</h4><div class="role">PhD Student</div><div class="yr">2023 &ndash;</div></div>
+      <div class="mb"><div class="av"><img src="photos/chenxiao-yu.jpg" alt="Chenxiao Yu"></div><h4>Chenxiao Yu</h4><div class="role">PhD Student</div><div class="yr">2023 &ndash;</div></div>
+      <div class="mb"><div class="av"><img src="photos/nana-sun.jpg" alt="Nana Sun"></div><h4>Nana Sun</h4><div class="role">PhD Student</div><div class="yr">2026 &ndash;</div></div>
     </div>
+
     <h3 class="gl rv">MD-PhD Student</h3>
-    <div class="tg rv"><div class="mb"><div class="av">HC</div><h4>Hongcheng Chen</h4><div class="role">MD-PhD</div><div class="yr">2024 &ndash;</div></div></div>
+    <div class="tg rv">
+      <div class="mb"><div class="av"><img src="photos/hongcheng-chen.jpg" alt="Hongcheng Chen"></div><h4>Hongcheng Chen</h4><div class="role">MD-PhD</div><div class="yr">2024 &ndash;</div></div>
+    </div>
+
     <h3 class="gl rv">Master Students</h3>
     <div class="tg rv">
-      <div class="mb"><div class="av">JX</div><h4>Jianing Xu</h4><div class="role">Master Student</div><div class="yr">2024 &ndash;</div></div>
-      <div class="mb"><div class="av">SA</div><h4>Shiqi Ao</h4><div class="role">Master Student</div><div class="yr">2025 &ndash;</div></div>
+      <div class="mb"><div class="av"><img src="photos/jianing-xu.jpg" alt="Jianing Xu"></div><h4>Jianing Xu</h4><div class="role">Master Student</div><div class="yr">2024 &ndash;</div></div>
+      <div class="mb"><div class="av"><img src="photos/shiqi-ao.jpg" alt="Shiqi Ao"></div><h4>Shiqi Ao</h4><div class="role">Master Student</div><div class="yr">2025 &ndash;</div></div>
     </div>
+
     <h3 class="gl rv">Undergraduate Student</h3>
-    <div class="tg rv"><div class="mb"><div class="av">JC</div><h4>Junhao Cheng</h4><div class="role">Undergraduate</div><div class="yr">2025 &ndash;</div></div></div>
+    <div class="tg rv">
+      <div class="mb"><div class="av"><img src="photos/junhao-cheng.jpg" alt="Junhao Cheng"></div><h4>Junhao Cheng</h4><div class="role">Undergraduate</div><div class="yr">2025 &ndash;</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- VISITING -->
+<section id="visiting">
+  <div class="container">
+    <div class="sh rv"><div class="sl">Visiting</div><h2 class="st">Visiting Students</h2></div>
+    <div class="tg rv">
+      <div class="mb">
+        <div class="av"><img src="photos/visiting-student-1.jpg" alt="Visiting Student"></div>
+        <h4>Name</h4>
+        <div class="role">Visiting Student</div>
+        <div class="yr">Year</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ALUMNI -->
+<section id="alumni" class="alt">
+  <div class="container">
+    <div class="sh rv"><div class="sl">Alumni</div><h2 class="st">Alumni</h2></div>
+    <div class="tg rv">
+      <div class="mb">
+        <div class="av"><img src="photos/alumni-1.jpg" alt="Alumni"></div>
+        <h4>Name</h4>
+        <div class="role">Former Member</div>
+        <div class="yr">Now at ...</div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -387,17 +428,17 @@
   </div>
 </section>
 
-<!-- FUN -->
-<section id="fun">
+<!-- GALLERY -->
+<section id="gallery">
   <div class="container">
-    <div class="sh rv"><div class="sl">Fun</div><h2 class="st">Lab Gallery</h2><p class="ss">Life in the Wang Lab &mdash; work hard, play hard.</p></div>
+    <div class="sh rv"><div class="sl">Gallery</div><h2 class="st">Lab Gallery</h2><p class="ss">Life in the Wang Lab &mdash; work hard, play hard.</p></div>
     <div class="gg rv">
-      <div class="gi">[ photos/group-photo.jpg ]</div>
-      <div class="gi">[ photos/lab-dinner.jpg ]</div>
-      <div class="gi">[ photos/conference.jpg ]</div>
-      <div class="gi">[ photos/lab-outing.jpg ]</div>
-      <div class="gi">[ photos/celebration.jpg ]</div>
-      <div class="gi">[ photos/team-building.jpg ]</div>
+      <div class="gi"><img src="photos/group-photo.jpg" alt="Group Photo"><div class="cap">Group Photo</div></div>
+      <div class="gi"><img src="photos/lab-dinner.jpg" alt="Lab Dinner"><div class="cap">Lab Dinner</div></div>
+      <div class="gi"><img src="photos/conference.jpg" alt="Conference"><div class="cap">Conference</div></div>
+      <div class="gi"><img src="photos/lab-outing.jpg" alt="Lab Outing"><div class="cap">Lab Outing</div></div>
+      <div class="gi"><img src="photos/celebration.jpg" alt="Celebration"><div class="cap">Celebration</div></div>
+      <div class="gi"><img src="photos/team-building.jpg" alt="Team Building"><div class="cap">Team Building</div></div>
     </div>
   </div>
 </section>
