@@ -7,6 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=Nunito+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
 <style>
   :root {
     --bg: #FAF9F6;
@@ -21,7 +22,7 @@
     --fh: 'Playfair Display', serif;
     --fb: 'Nunito Sans', sans-serif;
     --fm: 'JetBrains Mono', monospace;
-    --mw: 1060px;
+    --mw: 1080px;
     --nh: 58px;
   }
 
@@ -38,7 +39,6 @@
   a { text-decoration: none; }
   img { display: block; max-width: 100%; }
 
-  /* NAV */
   nav {
     position: fixed;
     top: 0; left: 0; right: 0;
@@ -62,7 +62,7 @@
   }
   .nav-logo {
     font-family: var(--fh);
-    font-size: 1.1rem;
+    font-size: 1.12rem;
     color: var(--accent);
     font-weight: 700;
   }
@@ -72,7 +72,7 @@
   }
   .nav-links {
     display: flex;
-    gap: 1.2rem;
+    gap: 1.15rem;
     list-style: none;
     flex-wrap: wrap;
     justify-content: flex-end;
@@ -100,7 +100,6 @@
     margin: 4px 0;
   }
 
-  /* HERO */
   .hero {
     margin-top: var(--nh);
     position: relative;
@@ -108,13 +107,13 @@
   }
   .hero-banner {
     width: 100%;
-    height: 320px;
+    height: 340px;
     object-fit: cover;
     display: block;
   }
   .hero-body {
     background: var(--dark);
-    padding: 2.5rem 1.5rem 3rem;
+    padding: 2.7rem 1.5rem 3.1rem;
     position: relative;
   }
   .hero-inner {
@@ -137,7 +136,7 @@
   }
   .hero h1 {
     font-family: var(--fh);
-    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    font-size: clamp(1.9rem, 4vw, 3rem);
     color: #fff;
     line-height: 1.25;
     margin-bottom: 0.8rem;
@@ -149,12 +148,11 @@
   .hero-desc {
     color: rgba(255,255,255,0.75);
     font-size: 0.98rem;
-    max-width: 700px;
+    max-width: 720px;
     line-height: 1.85;
   }
   .hero-desc a {
     color: var(--accent2);
-    text-decoration: none;
   }
   .hero-actions {
     margin-top: 1.3rem;
@@ -174,9 +172,7 @@
     background: var(--accent);
     color: #fff;
   }
-  .hero-btn.primary:hover {
-    background: #704B30;
-  }
+  .hero-btn.primary:hover { background: #704B30; }
   .hero-btn.secondary {
     border: 1px solid rgba(255,255,255,0.22);
     color: #fff;
@@ -186,8 +182,7 @@
     color: var(--accent2);
   }
 
-  /* SHARED */
-  section { padding: 3.5rem 1.5rem; }
+  section { padding: 3.6rem 1.5rem; }
   .container {
     max-width: var(--mw);
     margin: 0 auto;
@@ -203,50 +198,19 @@
   }
   .st {
     font-family: var(--fh);
-    font-size: clamp(1.5rem, 3vw, 2.1rem);
+    font-size: clamp(1.5rem, 3vw, 2.15rem);
     margin-bottom: 0.6rem;
     line-height: 1.3;
   }
   .ss {
     color: var(--text2);
     font-size: 0.95rem;
-    max-width: 680px;
+    max-width: 720px;
     line-height: 1.8;
   }
-  .sh { margin-bottom: 2.5rem; }
+  .sh { margin-bottom: 2.4rem; }
   .alt { background: var(--hl); }
 
-  /* Highlights */
-  .highlight-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 1rem;
-    margin: 1.6rem 0 2.2rem;
-  }
-  .highlight-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 1.2rem 1.25rem;
-  }
-  .highlight-card .k {
-    font-family: var(--fm);
-    font-size: 0.68rem;
-    color: var(--accent);
-    margin-bottom: 0.4rem;
-  }
-  .highlight-card h3 {
-    font-family: var(--fh);
-    font-size: 1rem;
-    margin-bottom: 0.35rem;
-  }
-  .highlight-card p {
-    color: var(--text2);
-    font-size: 0.84rem;
-    line-height: 1.7;
-  }
-
-  /* RESEARCH */
   .rg {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -265,7 +229,7 @@
   }
   .rc h3 {
     font-family: var(--fh);
-    font-size: 1.1rem;
+    font-size: 1.08rem;
     margin-bottom: 0.5rem;
   }
   .rc p {
@@ -274,7 +238,6 @@
     line-height: 1.7;
   }
 
-  /* NEWS */
   .nlist { margin-top: 2rem; }
   .ni {
     display: flex;
@@ -293,7 +256,6 @@
   }
   .nt strong { color: var(--accent); }
 
-  /* TEAM */
   .pi-card {
     display: flex;
     gap: 2rem;
@@ -306,16 +268,13 @@
   }
   .pi-av {
     flex-shrink: 0;
-    width: 130px;
-    height: 130px;
+    width: 140px;
+    height: 140px;
     border-radius: 50%;
     background: linear-gradient(135deg, var(--accent), var(--accent2));
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: var(--fh);
-    font-size: 2.6rem;
-    color: #fff;
     overflow: hidden;
   }
   .pi-av img {
@@ -340,6 +299,9 @@
     color: var(--text2);
     font-size: 0.88rem;
     line-height: 1.75;
+  }
+  .pi-m p a {
+    color: var(--accent);
   }
   .pi-m .links {
     display: flex;
@@ -371,11 +333,17 @@
   }
   .tg {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(145px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
     gap: 1.4rem;
     margin-bottom: 2.2rem;
   }
-  .mb { text-align: center; }
+  .mb {
+    text-align: center;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1rem 0.85rem;
+  }
   .mb .av {
     width: 100px;
     height: 100px;
@@ -385,12 +353,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: var(--fh);
-    font-size: 1.4rem;
-    color: #fff;
+    overflow: hidden;
     border: 3px solid var(--surface);
     box-shadow: 0 2px 12px rgba(0,0,0,0.06);
-    overflow: hidden;
   }
   .mb .av img {
     width: 100%;
@@ -400,7 +365,7 @@
   }
   .mb h4 {
     font-family: var(--fh);
-    font-size: 0.9rem;
+    font-size: 0.92rem;
     margin-bottom: 0.1rem;
   }
   .mb .role {
@@ -413,34 +378,28 @@
   .mb .yr {
     color: var(--text2);
     font-size: 0.78rem;
+    margin-top: 0.15rem;
   }
-
-  /* Selected publications */
-  .selpub {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1rem;
-    margin-bottom: 2rem;
-  }
-  .selpub .sp {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 1rem 1.1rem;
-  }
-  .selpub .sp h3 {
-    font-family: var(--fh);
-    font-size: 0.98rem;
-    line-height: 1.4;
-    margin-bottom: 0.35rem;
-  }
-  .selpub .sp p {
+  .mb .dir {
     color: var(--text2);
-    font-size: 0.82rem;
-    line-height: 1.6;
+    font-size: 0.78rem;
+    line-height: 1.5;
+    margin-top: 0.24rem;
+  }
+  .mb .mail {
+    margin-top: 0.28rem;
+    font-size: 0.76rem;
+    line-height: 1.5;
+  }
+  .mb .mail a {
+    color: var(--accent);
+    text-decoration: none;
+    word-break: break-word;
+  }
+  .mb .mail a:hover {
+    color: var(--accent2);
   }
 
-  /* PUBLICATIONS */
   .pn {
     color: var(--text2);
     font-size: 0.88rem;
@@ -512,38 +471,18 @@
     font-weight: 600;
   }
 
-  /* POSITIONS */
   .pos {
     background: var(--surface);
     border: 1px solid var(--border);
     border-radius: 8px;
     padding: 1.6rem;
-    margin-bottom: 1rem;
-  }
-  .pos h3 {
-    font-family: var(--fh);
-    font-size: 1.05rem;
-    margin-bottom: 0.4rem;
   }
   .pos p {
     color: var(--text2);
     font-size: 0.9rem;
     line-height: 1.75;
   }
-  .pos .ap {
-    display: inline-block;
-    margin-top: 0.8rem;
-    padding: 0.4rem 1.2rem;
-    border-radius: 5px;
-    background: var(--accent);
-    color: #fff;
-    font-size: 0.82rem;
-    font-weight: 600;
-    transition: background 0.2s;
-  }
-  .pos .ap:hover { background: #704B30; }
 
-  /* GALLERY */
   .gg {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
@@ -576,7 +515,6 @@
     font-family: var(--fb);
   }
 
-  /* SOFTWARE */
   .sw {
     background: var(--surface);
     border: 1px solid var(--border);
@@ -631,7 +569,6 @@
     color: var(--accent);
   }
 
-  /* CONTACT */
   #contact {
     background: var(--dark);
     color: #fff;
@@ -675,11 +612,9 @@
   }
   .ci a {
     color: var(--accent2);
-    text-decoration: none;
   }
   .ci a:hover { color: #D4956A; }
 
-  /* FOOTER */
   footer {
     background: #2C2C2C;
     color: rgba(255,255,255,0.4);
@@ -689,7 +624,6 @@
   }
   footer a {
     color: rgba(255,255,255,0.6);
-    text-decoration: none;
   }
   .foot-note {
     margin-top: 0.45rem;
@@ -730,15 +664,14 @@
     .pi-m .links { justify-content: center; }
     .cg { grid-template-columns: 1fr; }
     .tg {
-      grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
       gap: 1rem;
     }
     .mb .av {
-      width: 80px;
-      height: 80px;
-      font-size: 1.1rem;
+      width: 82px;
+      height: 82px;
     }
-    .hero-banner { height: 200px; }
+    .hero-banner { height: 210px; }
   }
 </style>
 </head>
@@ -747,7 +680,9 @@
 <nav>
   <div class="nav-in">
     <a href="#home" class="nav-logo">Wang Lab <span>@ Fudan</span></a>
-    <button class="ham" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu"><span></span><span></span><span></span></button>
+    <button class="ham" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
     <ul class="nav-links">
       <li><a href="#home" onclick="cm()">Home</a></li>
       <li><a href="#team" onclick="cm()">Team</a></li>
@@ -760,7 +695,6 @@
   </div>
 </nav>
 
-<!-- HOME -->
 <section class="hero" id="home">
   <img src="photos/banner.jpg" alt="Wang Lab banner" class="hero-banner">
   <div class="hero-body">
@@ -774,7 +708,7 @@
       </p>
       <div class="hero-actions">
         <a href="#team" class="hero-btn primary">Meet the Team</a>
-        <a href="#publications" class="hero-btn secondary">Selected Publications</a>
+        <a href="#publications" class="hero-btn secondary">Publications</a>
       </div>
     </div>
   </div>
@@ -790,36 +724,18 @@
       </p>
     </div>
 
-    <div class="highlight-grid rv">
-      <div class="highlight-card">
-        <div class="k">Theme 01</div>
-        <h3>Metabolism &amp; Complex Disease</h3>
-        <p>We study obesity, metabolic syndrome, fibrosis, and cancer through large-scale multi-omics analyses and integrative disease modeling.</p>
-      </div>
-      <div class="highlight-card">
-        <div class="k">Theme 02</div>
-        <h3>Single-cell &amp; Spatial Omics</h3>
-        <p>We build cellular atlases and dissect tissue ecosystems using single-cell transcriptomics, snRNA-seq, and spatial technologies.</p>
-      </div>
-      <div class="highlight-card">
-        <div class="k">Theme 03</div>
-        <h3>AI &amp; Computational Biology</h3>
-        <p>We develop algorithms and data integration frameworks to identify metabolic fingerprints, cellular states, and therapeutically relevant programs.</p>
-      </div>
-    </div>
-
     <div class="rg">
       <div class="rc rv">
         <h3>Decoding Metabolic Signatures Across Complex Diseases</h3>
         <p>Applying multi-omics approaches to dissect the molecular underpinnings of obesity, metabolic syndrome, and cancer. We leverage large-scale datasets to identify metabolic reprogramming signatures, uncover how metabolic dysregulation drives disease progression, and reveal potential therapeutic vulnerabilities.</p>
       </div>
       <div class="rc rv">
-        <h3>Fibrosis Mechanisms</h3>
-        <p>Using single-cell and spatial technologies to map the cellular landscapes of fibrotic diseases, identifying key driver populations and therapeutic targets in tissue remodeling.</p>
+        <h3>Pan-fibrosis Therapeutic Discovery</h3>
+        <p>Using single-cell and spatial technologies to map shared and disease-specific cellular mechanisms across fibrotic disorders, identify conserved therapeutic targets, and accelerate pan-fibrosis biomarker and treatment discovery.</p>
       </div>
       <div class="rc rv">
-        <h3>Computational Tools &amp; Data Integration</h3>
-        <p>Building novel algorithms and integrative frameworks to analyze and integrate multi-modal datasets across tissues, species, and conditions, enabling robust discoveries of metabolic fingerprints and biomarker signatures from large-scale single-cell and spatial datasets.</p>
+        <h3>Computational Tools &amp; Digital Metabolism</h3>
+        <p>Building novel algorithms, digital metabolism frameworks, and integrative multi-modal analysis pipelines to identify metabolic fingerprints, cellular states, and biologically interpretable disease programs from large-scale omics data.</p>
       </div>
     </div>
 
@@ -837,7 +753,6 @@
   </div>
 </section>
 
-<!-- TEAM -->
 <section id="team" class="alt">
   <div class="container">
     <div class="sh rv">
@@ -850,7 +765,14 @@
       <div class="pi-m">
         <h3>Dr. Guanlin Wang</h3>
         <div class="role">Principal Investigator, March 2022 &ndash;</div>
-        <p>Ph.D. with Prof. John Speakman, Chinese Academy of Sciences<br>Postdoc with Prof. Adam Mead, MRC WIMM, University of Oxford<br>Junior Research Fellow, Wolfson College, University of Oxford<br><br>Email: guanlin_wang &laquo;at&raquo; fudan.edu.cn<br>Office: D1313, Wangu Building, Fudan University</p>
+        <p>
+          Ph.D. with Prof. John Speakman, Chinese Academy of Sciences<br>
+          Postdoc with Prof. Adam Mead, MRC WIMM, University of Oxford<br>
+          Junior Research Fellow, Wolfson College, University of Oxford<br><br>
+          Research direction: metabolism, single-cell omics, spatial transcriptomics, artificial intelligence, and computational biology.<br>
+          Email: <a href="mailto:guanlin_wang@fudan.edu.cn">guanlin_wang@fudan.edu.cn</a><br>
+          Office: D1313, Wangu Building, Fudan University
+        </p>
         <div class="links">
           <a href="https://scholar.google.com/citations?user=K1KoTZwAAAAJ" target="_blank">Google Scholar</a>
           <a href="https://imib.fudan.edu.cn/imiben/af/a3/c23203a438179/page.htm" target="_blank">IMIB Profile</a>
@@ -861,27 +783,95 @@
 
     <h3 class="gl rv">PhD Students</h3>
     <div class="tg rv">
-      <div class="mb"><div class="av"><img src="photos/pengwei-dong.jpg" alt="Pengwei Dong"></div><h4>Pengwei Dong</h4><div class="role">PhD Student</div><div class="yr">2022 &ndash;</div></div>
-      <div class="mb"><div class="av"><img src="photos/yifan-liang.jpg" alt="Yifan Liang"></div><h4>Yifan Liang</h4><div class="role">PhD Student</div><div class="yr">2022 &ndash;</div></div>
-      <div class="mb"><div class="av"><img src="photos/shitong-ding.jpg" alt="Shitong Ding"></div><h4>Shitong Ding</h4><div class="role">PhD Student</div><div class="yr">2023 &ndash;</div></div>
-      <div class="mb"><div class="av"><img src="photos/chenxiao-yu.jpg" alt="Chenxiao Yu"></div><h4>Chenxiao Yu</h4><div class="role">PhD Student</div><div class="yr">2023 &ndash;</div></div>
-      <div class="mb"><div class="av"><img src="photos/nana-sun.jpg" alt="Nana Sun"></div><h4>Nana Sun</h4><div class="role">PhD Student</div><div class="yr">2026 &ndash;</div></div>
+      <div class="mb">
+        <div class="av"><img src="photos/pengwei-dong.jpg" alt="Pengwei Dong"></div>
+        <h4>Pengwei Dong</h4>
+        <div class="role">PhD Student</div>
+        <div class="yr">2022 &ndash;</div>
+        <div class="dir">Research: single-cell omics, metabolism, computational biology</div>
+        <div class="mail"><a href="mailto:pengwei_dong@fudan.edu.cn">pengwei_dong@fudan.edu.cn</a></div>
+      </div>
+
+      <div class="mb">
+        <div class="av"><img src="photos/yifan-liang.jpg" alt="Yifan Liang"></div>
+        <h4>Yifan Liang</h4>
+        <div class="role">PhD Student</div>
+        <div class="yr">2022 &ndash;</div>
+        <div class="dir">Research: spatial transcriptomics, deep learning, computational biology</div>
+        <div class="mail"><a href="mailto:yifan_liang@fudan.edu.cn">yifan_liang@fudan.edu.cn</a></div>
+      </div>
+
+      <div class="mb">
+        <div class="av"><img src="photos/shitong-ding.jpg" alt="Shitong Ding"></div>
+        <h4>Shitong Ding</h4>
+        <div class="role">PhD Student</div>
+        <div class="yr">2023 &ndash;</div>
+        <div class="dir">Research: snRNA-seq analysis, metabolic tissues, bioinformatics</div>
+        <div class="mail"><a href="mailto:shitong_ding@fudan.edu.cn">shitong_ding@fudan.edu.cn</a></div>
+      </div>
+
+      <div class="mb">
+        <div class="av"><img src="photos/chenxiao-yu.jpg" alt="Chenxiao Yu"></div>
+        <h4>Chenxiao Yu</h4>
+        <div class="role">PhD Student</div>
+        <div class="yr">2023 &ndash;</div>
+        <div class="dir">Research: fibrosis, single-cell analysis, disease mechanisms</div>
+        <div class="mail"><a href="mailto:chenxiao_yu@fudan.edu.cn">chenxiao_yu@fudan.edu.cn</a></div>
+      </div>
+
+      <div class="mb">
+        <div class="av"><img src="photos/nana-sun.jpg" alt="Nana Sun"></div>
+        <h4>Nana Sun</h4>
+        <div class="role">PhD Student</div>
+        <div class="yr">2026 &ndash;</div>
+        <div class="dir">Research: metabolism, AI, multi-omics analysis</div>
+        <div class="mail"><a href="mailto:nana_sun@fudan.edu.cn">nana_sun@fudan.edu.cn</a></div>
+      </div>
     </div>
 
     <h3 class="gl rv">MD-PhD Student</h3>
     <div class="tg rv">
-      <div class="mb"><div class="av"><img src="photos/hongcheng-chen.jpg" alt="Hongcheng Chen"></div><h4>Hongcheng Chen</h4><div class="role">MD-PhD</div><div class="yr">2024 &ndash;</div></div>
+      <div class="mb">
+        <div class="av"><img src="photos/hongcheng-chen.jpg" alt="Hongcheng Chen"></div>
+        <h4>Hongcheng Chen</h4>
+        <div class="role">MD-PhD</div>
+        <div class="yr">2024 &ndash;</div>
+        <div class="dir">Research: translational medicine, hematopoiesis, clinical omics</div>
+        <div class="mail"><a href="mailto:hongcheng_chen@fudan.edu.cn">hongcheng_chen@fudan.edu.cn</a></div>
+      </div>
     </div>
 
     <h3 class="gl rv">Master Students</h3>
     <div class="tg rv">
-      <div class="mb"><div class="av"><img src="photos/jianing-xu.jpg" alt="Jianing Xu"></div><h4>Jianing Xu</h4><div class="role">Master Student</div><div class="yr">2024 &ndash;</div></div>
-      <div class="mb"><div class="av"><img src="photos/shiqi-ao.jpg" alt="Shiqi Ao"></div><h4>Shiqi Ao</h4><div class="role">Master Student</div><div class="yr">2025 &ndash;</div></div>
+      <div class="mb">
+        <div class="av"><img src="photos/jianing-xu.jpg" alt="Jianing Xu"></div>
+        <h4>Jianing Xu</h4>
+        <div class="role">Master Student</div>
+        <div class="yr">2024 &ndash;</div>
+        <div class="dir">Research: bioinformatics, omics data analysis</div>
+        <div class="mail"><a href="mailto:jianing_xu@fudan.edu.cn">jianing_xu@fudan.edu.cn</a></div>
+      </div>
+
+      <div class="mb">
+        <div class="av"><img src="photos/shiqi-ao.jpg" alt="Shiqi Ao"></div>
+        <h4>Shiqi Ao</h4>
+        <div class="role">Master Student</div>
+        <div class="yr">2025 &ndash;</div>
+        <div class="dir">Research: metabolism, transcriptomics, data integration</div>
+        <div class="mail"><a href="mailto:shiqi_ao@fudan.edu.cn">shiqi_ao@fudan.edu.cn</a></div>
+      </div>
     </div>
 
     <h3 class="gl rv">Undergraduate Student</h3>
     <div class="tg rv">
-      <div class="mb"><div class="av"><img src="photos/junhao-cheng.jpg" alt="Junhao Cheng"></div><h4>Junhao Cheng</h4><div class="role">Undergraduate</div><div class="yr">2025 &ndash;</div></div>
+      <div class="mb">
+        <div class="av"><img src="photos/junhao-cheng.jpg" alt="Junhao Cheng"></div>
+        <h4>Junhao Cheng</h4>
+        <div class="role">Undergraduate</div>
+        <div class="yr">2025 &ndash;</div>
+        <div class="dir">Research: research trainee, computational biology</div>
+        <div class="mail"><a href="mailto:junhao_cheng@fudan.edu.cn">junhao_cheng@fudan.edu.cn</a></div>
+      </div>
     </div>
 
     <h3 class="gl rv">Visiting Students</h3>
@@ -891,6 +881,8 @@
         <h4>Name</h4>
         <div class="role">Visiting Student</div>
         <div class="yr">Year</div>
+        <div class="dir">Research: visiting research topic</div>
+        <div class="mail"><a href="mailto:visiting_student@institution.edu">visiting_student@institution.edu</a></div>
       </div>
     </div>
 
@@ -901,33 +893,19 @@
         <h4>Wenjiang Zhou</h4>
         <div class="role">Alumni</div>
         <div class="yr">Former Member</div>
+        <div class="dir">Research: metabolism and omics analysis</div>
+        <div class="mail"><a href="mailto:wenjiang_zhou@outlook.com">wenjiang_zhou@outlook.com</a></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- PUBLICATIONS -->
 <section id="publications">
   <div class="container">
     <div class="sh rv">
       <div class="sl">Publications</div>
       <h2 class="st">Publications</h2>
       <p class="pn">(For a full list see <a href="https://scholar.google.com/citations?user=K1KoTZwAAAAJ" target="_blank">Google Scholar</a>)</p>
-    </div>
-
-    <div class="selpub rv">
-      <div class="sp">
-        <h3>SURF: A self-supervised deep learning method for reference-free deconvolution in spatial transcriptomics</h3>
-        <p><strong>Advanced Science</strong>, 2025</p>
-      </div>
-      <div class="sp">
-        <h3>A proinflammatory stem cell niche drives myelofibrosis through a targetable galectin-1 axis</h3>
-        <p><strong>Science Translational Medicine</strong>, 2024</p>
-      </div>
-      <div class="sp">
-        <h3>An immune cell atlas reveals the dynamics of human macrophage specification during prenatal development</h3>
-        <p><strong>Cell</strong>, 2023</p>
-      </div>
     </div>
 
     <div class="pl">
@@ -1037,7 +1015,6 @@
   </div>
 </section>
 
-<!-- OPEN POSITIONS -->
 <section id="positions" class="alt">
   <div class="container">
     <div class="sh rv">
@@ -1045,13 +1022,14 @@
       <h2 class="st">Open Positions</h2>
       <p class="ss">We are looking for passionate new PhD students, Postdocs, and Research Assistants to join the team!</p>
     </div>
-    <div class="pos rv"><h3>Postdoctoral Researcher</h3><p>We are seeking postdocs with a background in computational biology, bioinformatics, or related fields. Experience with single-cell omics data analysis is preferred.</p><a href="mailto:guanlin_wang@fudan.edu.cn" class="ap">Apply via Email</a></div>
-    <div class="pos rv"><h3>PhD Students</h3><p>We welcome motivated PhD applicants through the Fudan University graduate program. Students with backgrounds in biology, computer science, statistics, or related quantitative fields are encouraged to reach out.</p><a href="mailto:guanlin_wang@fudan.edu.cn" class="ap">Inquire via Email</a></div>
-    <div class="pos rv"><h3>Research Assistants &amp; Visiting Students</h3><p>Short-term and long-term positions are available for research assistants and visiting students interested in computational biology and multi-omics analysis.</p><a href="mailto:guanlin_wang@fudan.edu.cn" class="ap">Contact Us</a></div>
+    <div class="pos rv">
+      <p>
+        We welcome motivated researchers with backgrounds in computational biology, bioinformatics, artificial intelligence, single-cell omics, spatial transcriptomics, metabolism, and related quantitative disciplines. Positions may be available for PhD students, postdoctoral researchers, research assistants, and visiting students. If you are interested in joining the lab, please contact <a href="mailto:guanlin_wang@fudan.edu.cn">guanlin_wang@fudan.edu.cn</a>.
+      </p>
+    </div>
   </div>
 </section>
 
-<!-- GALLERY -->
 <section id="gallery">
   <div class="container">
     <div class="sh rv">
@@ -1070,7 +1048,6 @@
   </div>
 </section>
 
-<!-- SOFTWARE -->
 <section id="software" class="alt">
   <div class="container">
     <div class="sh rv"><div class="sl">Software</div><h2 class="st">Tools &amp; Software</h2></div>
@@ -1079,7 +1056,6 @@
   </div>
 </section>
 
-<!-- CONTACT -->
 <section id="contact">
   <div class="container">
     <div class="sh rv"><div class="sl">Contact</div><h2 class="st">Get in Touch</h2></div>
