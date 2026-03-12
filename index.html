@@ -22,7 +22,7 @@
     --fh: 'Playfair Display', serif;
     --fb: 'Nunito Sans', sans-serif;
     --fm: 'JetBrains Mono', monospace;
-    --mw: 1080px;
+    --mw: 1120px;
     --nh: 58px;
   }
 
@@ -107,13 +107,13 @@
   }
   .hero-banner {
     width: 100%;
-    height: 340px;
+    height: 360px;
     object-fit: cover;
     display: block;
   }
   .hero-body {
     background: var(--dark);
-    padding: 2.7rem 1.5rem 3.1rem;
+    padding: 2.8rem 1.5rem 3.2rem;
     position: relative;
   }
   .hero-inner {
@@ -136,9 +136,9 @@
   }
   .hero h1 {
     font-family: var(--fh);
-    font-size: clamp(1.9rem, 4vw, 3rem);
+    font-size: clamp(2rem, 4vw, 3.05rem);
     color: #fff;
-    line-height: 1.25;
+    line-height: 1.24;
     margin-bottom: 0.8rem;
   }
   .hero h1 em {
@@ -146,9 +146,9 @@
     font-style: italic;
   }
   .hero-desc {
-    color: rgba(255,255,255,0.75);
-    font-size: 0.98rem;
-    max-width: 720px;
+    color: rgba(255,255,255,0.76);
+    font-size: 0.99rem;
+    max-width: 760px;
     line-height: 1.85;
   }
   .hero-desc a {
@@ -162,7 +162,7 @@
   }
   .hero-btn {
     display: inline-block;
-    padding: 0.55rem 1rem;
+    padding: 0.56rem 1rem;
     border-radius: 6px;
     font-size: 0.82rem;
     font-weight: 700;
@@ -182,7 +182,7 @@
     color: var(--accent2);
   }
 
-  section { padding: 3.6rem 1.5rem; }
+  section { padding: 3.8rem 1.5rem; }
   .container {
     max-width: var(--mw);
     margin: 0 auto;
@@ -198,14 +198,14 @@
   }
   .st {
     font-family: var(--fh);
-    font-size: clamp(1.5rem, 3vw, 2.15rem);
+    font-size: clamp(1.55rem, 3vw, 2.18rem);
     margin-bottom: 0.6rem;
     line-height: 1.3;
   }
   .ss {
     color: var(--text2);
     font-size: 0.95rem;
-    max-width: 720px;
+    max-width: 760px;
     line-height: 1.8;
   }
   .sh { margin-bottom: 2.4rem; }
@@ -213,36 +213,36 @@
 
   .rg {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 1.2rem;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.25rem;
   }
   .rc {
     background: var(--surface);
     border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 1.6rem;
+    border-radius: 10px;
+    padding: 1.7rem;
     transition: transform 0.2s, box-shadow 0.2s;
   }
   .rc:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 24px rgba(0,0,0,0.05);
+    box-shadow: 0 8px 28px rgba(0,0,0,0.05);
   }
   .rc h3 {
     font-family: var(--fh);
-    font-size: 1.08rem;
+    font-size: 1.1rem;
     margin-bottom: 0.5rem;
   }
   .rc p {
     color: var(--text2);
-    font-size: 0.88rem;
-    line-height: 1.7;
+    font-size: 0.89rem;
+    line-height: 1.75;
   }
 
   .nlist { margin-top: 2rem; }
   .ni {
     display: flex;
     gap: 1rem;
-    padding: 0.6rem 0;
+    padding: 0.65rem 0;
     border-bottom: 1px solid var(--border);
     font-size: 0.9rem;
   }
@@ -257,177 +257,160 @@
   .nt strong { color: var(--accent); }
 
   .pi-card {
-  display: flex;
-  gap: 2.2rem;
-  align-items: center;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 14px;
-  padding: 2.2rem;
-  margin-bottom: 2.7rem;
-  box-shadow: 0 8px 28px rgba(0,0,0,0.05);
-}
-
-.pi-av {
-  flex-shrink: 0;
-  width: 180px;
-  height: 180px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, var(--accent), var(--accent2));
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.10);
-}
+    display: flex;
+    gap: 2.4rem;
+    align-items: center;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 2.3rem;
+    margin-bottom: 2.8rem;
+    box-shadow: 0 8px 28px rgba(0,0,0,0.05);
+  }
+  .pi-av {
+    flex-shrink: 0;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.10);
+  }
   .pi-av img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.pi-m h3 {
-  font-family: var(--fh);
-  font-size: 1.48rem;
-  margin-bottom: 0.18rem;
-}
-
-.pi-m .role {
-  color: var(--accent);
-  font-size: 0.8rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  margin-bottom: 0.7rem;
-}
-
-.pi-m p {
-  color: var(--text2);
-  font-size: 0.9rem;
-  line-height: 1.82;
-}
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .pi-m h3 {
+    font-family: var(--fh);
+    font-size: 1.5rem;
+    margin-bottom: 0.18rem;
+  }
+  .pi-m .role {
+    color: var(--accent);
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 0.7rem;
+  }
+  .pi-m p {
+    color: var(--text2);
+    font-size: 0.9rem;
+    line-height: 1.82;
+  }
   .pi-m p a {
     color: var(--accent);
   }
   .pi-m .links {
-  display: flex;
-  gap: 0.55rem;
-  margin-top: 0.9rem;
-  flex-wrap: wrap;
-}
-
-.pi-m .links a {
-  padding: 0.36rem 0.9rem;
-  border-radius: 999px;
-  font-size: 0.78rem;
-  font-weight: 700;
-  border: 1px solid var(--border);
-  color: var(--text2);
-  transition: all 0.2s ease;
-  background: #fff;
-}
-
-.pi-m .links a:hover {
-  border-color: var(--accent);
-  color: var(--accent);
-  transform: translateY(-1px);
-}
+    display: flex;
+    gap: 0.55rem;
+    margin-top: 0.9rem;
+    flex-wrap: wrap;
+  }
+  .pi-m .links a {
+    padding: 0.36rem 0.9rem;
+    border-radius: 999px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    border: 1px solid var(--border);
+    color: var(--text2);
+    transition: all 0.2s ease;
+    background: #fff;
+  }
+  .pi-m .links a:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    transform: translateY(-1px);
+  }
 
   .gl {
-  font-family: var(--fh);
-  font-size: 1.18rem;
-  color: var(--accent);
-  padding-bottom: 0.42rem;
-  border-bottom: 2px solid var(--border);
-  margin-bottom: 1.2rem;
-}
-
-.tg {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 1.5rem;
-  margin-bottom: 2.4rem;
-}
-
-.mb {
-  text-align: center;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 14px;
-  padding: 1.25rem 1rem 1.15rem;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.04);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.mb:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 26px rgba(0,0,0,0.07);
-}
+    font-family: var(--fh);
+    font-size: 1.18rem;
+    color: var(--accent);
+    padding-bottom: 0.42rem;
+    border-bottom: 2px solid var(--border);
+    margin-bottom: 1.2rem;
+  }
+  .tg {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    gap: 1.55rem;
+    margin-bottom: 2.45rem;
+  }
+  .mb {
+    text-align: center;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 1.25rem 1rem 1.15rem;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.04);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .mb:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 26px rgba(0,0,0,0.07);
+  }
   .mb .av {
-  width: 130px;
-  height: 130px;
-  border-radius: 50%;
-  margin: 0 auto 0.85rem;
-  background: linear-gradient(135deg, var(--accent), var(--accent2));
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  border: 4px solid #fff;
-  box-shadow: 0 4px 14px rgba(0,0,0,0.08);
-}
-
-.mb .av img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 50%;
-}
-
-.mb h4 {
-  font-family: var(--fh);
-  font-size: 1rem;
-  margin-bottom: 0.14rem;
-  line-height: 1.35;
-}
-
-.mb .role {
-  color: var(--accent);
-  font-size: 0.72rem;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
+    width: 145px;
+    height: 145px;
+    border-radius: 50%;
+    margin: 0 auto 0.85rem;
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border: 4px solid #fff;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+  }
+  .mb .av img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+  .mb h4 {
+    font-family: var(--fh);
+    font-size: 1rem;
+    margin-bottom: 0.14rem;
+    line-height: 1.35;
+  }
+  .mb .role {
+    color: var(--accent);
+    font-size: 0.72rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
   .mb .yr {
-  color: var(--text2);
-  font-size: 0.78rem;
-  margin-top: 0.16rem;
-}
-
-.mb .dir {
-  color: var(--text2);
-  font-size: 0.79rem;
-  line-height: 1.52;
-  margin-top: 0.3rem;
-  min-height: 2.4em;
-}
-
-.mb .mail {
-  margin-top: 0.32rem;
-  font-size: 0.76rem;
-  line-height: 1.45;
-}
-
-.mb .mail a {
-  color: var(--accent);
-  text-decoration: none;
-  word-break: break-word;
-}
-
-.mb .mail a:hover {
-  color: var(--accent2);
-  text-decoration: underline;
-}
+    color: var(--text2);
+    font-size: 0.78rem;
+    margin-top: 0.16rem;
+  }
+  .mb .dir {
+    color: var(--text2);
+    font-size: 0.79rem;
+    line-height: 1.52;
+    margin-top: 0.3rem;
+    min-height: 2.4em;
+  }
+  .mb .mail {
+    margin-top: 0.32rem;
+    font-size: 0.76rem;
+    line-height: 1.45;
+  }
+  .mb .mail a {
+    color: var(--accent);
+    word-break: break-word;
+  }
+  .mb .mail a:hover {
+    color: var(--accent2);
+    text-decoration: underline;
+  }
 
   .pn {
     color: var(--text2);
@@ -503,52 +486,126 @@
   .pos {
     background: var(--surface);
     border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 1.6rem;
+    border-radius: 10px;
+    padding: 1.7rem;
   }
   .pos p {
     color: var(--text2);
-    font-size: 0.9rem;
-    line-height: 1.75;
+    font-size: 0.92rem;
+    line-height: 1.8;
+  }
+  .pos a {
+    color: var(--accent);
   }
 
-  .gg {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-    gap: 1rem;
-  }
-  .gi {
-    border-radius: 8px;
-    overflow: hidden;
-    aspect-ratio: 4/3;
-    background: var(--hl);
-    border: 1px solid var(--border);
+  .gallery-wrap {
     position: relative;
-    transition: transform 0.2s;
+    width: 100%;
+    overflow: hidden;
+    padding-top: 0.4rem;
   }
-  .gi:hover { transform: scale(1.02); }
-  .gi img {
+  .gallery-stage {
+    position: relative;
+    height: 520px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .gallery-item {
+    position: absolute;
+    width: 64%;
+    max-width: 720px;
+    aspect-ratio: 16/10;
+    border-radius: 18px;
+    overflow: hidden;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    box-shadow: 0 16px 40px rgba(0,0,0,0.12);
+    transition: transform 0.5s ease, opacity 0.5s ease, filter 0.5s ease;
+    cursor: pointer;
+  }
+  .gallery-item img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    position: absolute;
-    inset: 0;
   }
-  .gi .cap {
-    position: absolute;
-    bottom: 0; left: 0; right: 0;
-    background: linear-gradient(transparent, rgba(0,0,0,0.6));
-    color: #fff;
-    padding: 1.5rem 0.8rem 0.6rem;
-    font-size: 0.8rem;
-    font-family: var(--fb);
+  .gallery-item.center {
+    z-index: 5;
+    transform: translateX(0) scale(1);
+    opacity: 1;
+    filter: blur(0);
+  }
+  .gallery-item.left {
+    z-index: 3;
+    transform: translateX(-52%) scale(0.78);
+    opacity: 0.72;
+    filter: blur(0.3px);
+  }
+  .gallery-item.right {
+    z-index: 3;
+    transform: translateX(52%) scale(0.78);
+    opacity: 0.72;
+    filter: blur(0.3px);
+  }
+  .gallery-item.far-left {
+    z-index: 1;
+    transform: translateX(-92%) scale(0.58);
+    opacity: 0;
+    pointer-events: none;
+  }
+  .gallery-item.far-right {
+    z-index: 1;
+    transform: translateX(92%) scale(0.58);
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .gallery-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+    margin-top: 1.25rem;
+  }
+  .gallery-btn {
+    width: 44px;
+    height: 44px;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--text);
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  .gallery-btn:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    transform: translateY(-1px);
+  }
+  .gallery-dots {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+  }
+  .gallery-dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: #d9d0c7;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  .gallery-dot.active {
+    background: var(--accent);
+    transform: scale(1.15);
   }
 
   .sw {
     background: var(--surface);
     border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 1.6rem;
+    border-radius: 10px;
+    padding: 1.7rem;
     margin-bottom: 1rem;
     display: flex;
     gap: 1.2rem;
@@ -670,6 +727,13 @@
     transform: translateY(0);
   }
 
+  @media (max-width: 900px) {
+    .gallery-stage { height: 420px; }
+    .gallery-item { width: 78%; }
+    .gallery-item.left { transform: translateX(-42%) scale(0.72); }
+    .gallery-item.right { transform: translateX(42%) scale(0.72); }
+  }
+
   @media (max-width: 768px) {
     .nav-links { display: none; }
     .ham { display: block; }
@@ -687,21 +751,38 @@
     }
     .pi-card {
       flex-direction: column;
-    text-align: center;
-    gap: 1.4rem;
-    padding: 1.6rem;
+      text-align: center;
+      gap: 1.4rem;
+      padding: 1.6rem;
+    }
+    .pi-av {
+      width: 160px;
+      height: 160px;
     }
     .pi-m .links { justify-content: center; }
-    .cg { grid-template-columns: 1fr; }
     .tg {
-      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
       gap: 1rem;
     }
-    .mb .av {
-      width:105px;
-      height: 105px;
+    .mb {
+      padding: 1rem 0.8rem;
     }
-    .hero-banner { height: 210px; }
+    .mb .av {
+      width: 110px;
+      height: 110px;
+    }
+    .hero-banner { height: 220px; }
+    .cg { grid-template-columns: 1fr; }
+
+    .gallery-stage { height: 320px; }
+    .gallery-item { width: 86%; }
+    .gallery-item.left,
+    .gallery-item.right {
+      opacity: 0.38;
+      transform: translateX(0) scale(0.9);
+    }
+    .gallery-item.left { left: -48%; }
+    .gallery-item.right { right: -48%; }
   }
 </style>
 </head>
@@ -765,7 +846,7 @@
       </div>
       <div class="rc rv">
         <h3>Computational Tools &amp; Digital Metabolism</h3>
-        <p>Building novel algorithms, digital metabolism frameworks, and integrative multi-modal analysis pipelines to identify metabolic fingerprints, cellular states, and biologically interpretable disease programs from large-scale omics data.</p>
+        <p>Building novel algorithms, digital metabolism frameworks, and integrative multi-modal analysis pipelines to quantify metabolic states, identify cellular programs, and generate biologically interpretable models from large-scale omics data.</p>
       </div>
     </div>
 
@@ -775,7 +856,7 @@
         <div class="ni"><div class="nd">2026</div><div class="nt">Welcome <strong>Nana Sun</strong> (PhD student)!</div></div>
         <div class="ni"><div class="nd">2025</div><div class="nt">Congratulations to <strong>Pengwei Dong</strong> &mdash; awarded the National Scholarship for PhD students!</div></div>
         <div class="ni"><div class="nd">2025</div><div class="nt">Welcome <strong>Junhao Cheng</strong> (undergraduate) and <strong>Shiqi Ao</strong> (Master student)!</div></div>
-        <div class="ni"><div class="nd">2024</div><div class="nt">Welcome <strong>Hongcheng Chen</strong> (MD) and <strong>Jianing Xu</strong> (Master student)!</div></div>
+        <div class="ni"><div class="nd">2024</div><div class="nt">Welcome <strong>Hongcheng Chen</strong> (MD-PhD) and <strong>Jianing Xu</strong> (Master student)!</div></div>
         <div class="ni"><div class="nd">2023</div><div class="nt">Welcome <strong>Shitong Ding</strong> (PhD student) and <strong>Chenxiao Yu</strong> (PhD student)!</div></div>
         <div class="ni"><div class="nd">Mar 2022</div><div class="nt">Lab established at IMIB, Fudan University. Welcome <strong>Pengwei Dong</strong> and <strong>Yifan Liang</strong> (PhD students)!</div></div>
       </div>
@@ -818,7 +899,7 @@
         <h4>Pengwei Dong</h4>
         <div class="role">PhD Student</div>
         <div class="yr">2022 &ndash;</div>
-        <div class="dir">Research: single-cell/spatial omics, white adipose tissue atlas</div>
+        <div class="dir">Research: single-cell omics, metabolism, computational biology</div>
         <div class="mail"><a href="mailto:pengwei_dong@fudan.edu.cn">pengwei_dong@fudan.edu.cn</a></div>
       </div>
 
@@ -827,7 +908,7 @@
         <h4>Yifan Liang</h4>
         <div class="role">PhD Student</div>
         <div class="yr">2022 &ndash;</div>
-        <div class="dir">Research: single-cell omics,physical activity,computational biology</div>
+        <div class="dir">Research: spatial transcriptomics, deep learning, computational biology</div>
         <div class="mail"><a href="mailto:yifan_liang@fudan.edu.cn">yifan_liang@fudan.edu.cn</a></div>
       </div>
 
@@ -836,7 +917,7 @@
         <h4>Shitong Ding</h4>
         <div class="role">PhD Student</div>
         <div class="yr">2023 &ndash;</div>
-        <div class="dir">Research: single-cell/spatial omics </div>
+        <div class="dir">Research: snRNA-seq analysis, metabolic tissues, bioinformatics</div>
         <div class="mail"><a href="mailto:shitong_ding@fudan.edu.cn">shitong_ding@fudan.edu.cn</a></div>
       </div>
 
@@ -845,7 +926,7 @@
         <h4>Chenxiao Yu</h4>
         <div class="role">PhD Student</div>
         <div class="yr">2023 &ndash;</div>
-        <div class="dir">Research: pan-cancer single-cell/spatial omics, genetics</div>
+        <div class="dir">Research: fibrosis, single-cell analysis, disease mechanisms</div>
         <div class="mail"><a href="mailto:chenxiao_yu@fudan.edu.cn">chenxiao_yu@fudan.edu.cn</a></div>
       </div>
 
@@ -854,20 +935,8 @@
         <h4>Nana Sun</h4>
         <div class="role">PhD Student</div>
         <div class="yr">2026 &ndash;</div>
-        <div class="dir">Research: AI, large language model</div>
+        <div class="dir">Research: metabolism, AI, multi-omics analysis</div>
         <div class="mail"><a href="mailto:nana_sun@fudan.edu.cn">nana_sun@fudan.edu.cn</a></div>
-      </div>
-    </div>
-
-    <h3 class="gl rv">MD Student</h3>
-    <div class="tg rv">
-      <div class="mb">
-        <div class="av"><img src="photos/hongcheng-chen.jpg" alt="Hongcheng Chen"></div>
-        <h4>Hongcheng Chen</h4>
-        <div class="role">MD</div>
-        <div class="yr">2024 &ndash;</div>
-        <div class="dir">Research: translational medicine, aging clock, clinical omics</div>
-        <div class="mail"><a href="mailto:hongcheng_chen@fudan.edu.cn">hongcheng_chen@fudan.edu.cn</a></div>
       </div>
     </div>
 
@@ -878,7 +947,7 @@
         <h4>Jianing Xu</h4>
         <div class="role">Master Student</div>
         <div class="yr">2024 &ndash;</div>
-        <div class="dir">Research: pan fibrosis, omics data analysis</div>
+        <div class="dir">Research: bioinformatics, omics data analysis</div>
         <div class="mail"><a href="mailto:jianing_xu@fudan.edu.cn">jianing_xu@fudan.edu.cn</a></div>
       </div>
 
@@ -887,8 +956,20 @@
         <h4>Shiqi Ao</h4>
         <div class="role">Master Student</div>
         <div class="yr">2025 &ndash;</div>
-        <div class="dir">Research: metabolic diseases, omics data analysis, AI</div>
+        <div class="dir">Research: metabolism, transcriptomics, data integration</div>
         <div class="mail"><a href="mailto:shiqi_ao@fudan.edu.cn">shiqi_ao@fudan.edu.cn</a></div>
+      </div>
+    </div>
+
+    <h3 class="gl rv">MD-PhD Student</h3>
+    <div class="tg rv">
+      <div class="mb">
+        <div class="av"><img src="photos/hongcheng-chen.jpg" alt="Hongcheng Chen"></div>
+        <h4>Hongcheng Chen</h4>
+        <div class="role">MD-PhD</div>
+        <div class="yr">2024 &ndash;</div>
+        <div class="dir">Research: translational medicine, hematopoiesis, clinical omics</div>
+        <div class="mail"><a href="mailto:hongcheng_chen@fudan.edu.cn">hongcheng_chen@fudan.edu.cn</a></div>
       </div>
     </div>
 
@@ -899,7 +980,7 @@
         <h4>Junhao Cheng</h4>
         <div class="role">Undergraduate</div>
         <div class="yr">2025 &ndash;</div>
-        <div class="dir">Research: spatial transcriptomics, cell cell interactions, computational biology</div>
+        <div class="dir">Research: research trainee, computational biology</div>
         <div class="mail"><a href="mailto:junhao_cheng@fudan.edu.cn">junhao_cheng@fudan.edu.cn</a></div>
       </div>
     </div>
@@ -923,8 +1004,8 @@
         <h4>Wenjiang Zhou</h4>
         <div class="role">Alumni</div>
         <div class="yr">Former Member</div>
-        <div class="dir">Research: single cell omics analysis</div>
-        <div class="mail"><a href="mailto:wenjiang_zhou@outlook.com">wenjiang_zhou@xxxxxx</a></div>
+        <div class="dir">Research: metabolism and omics analysis</div>
+        <div class="mail"><a href="mailto:wenjiang_zhou@outlook.com">wenjiang_zhou@outlook.com</a></div>
       </div>
     </div>
   </div>
@@ -948,13 +1029,13 @@
 
       <div class="yr-div rv">2025</div>
       <div class="pub rv">
-        <h4><a href="https://advanced.onlinelibrary.wiley.com/doi/10.1002/advs.202505456" target="_blank">SURF: A self-supervised deep learning method for reference-free deconvolution in spatial transcriptomics</a></h4>
-        <p class="au">Liang Y, ..., <strong>Wang G*</strong>, Wang Y*, Guo Y*. <span class="jn">Advanced Science</span></p>
+        <h4><a href="https://academic.oup.com/lifemeta/article/4/3/loaf010/8104468" target="_blank">Optimized upstream analytical workflow for single-nucleus transcriptomics in main metabolic tissues</a></h4>
+        <p class="au">Dong P, Ding S, <strong>Wang G*</strong>. <span class="jn">Life Metabolism</span></p>
         <div class="meta"><span class="tag">Corresponding</span></div>
       </div>
       <div class="pub rv">
-        <h4><a href="https://www.biorxiv.org/content/10.1101/2025.02.22.639604v1" target="_blank">Optimized upstream analytical workflow for single-nucleus transcriptomics in main metabolic tissues</a></h4>
-        <p class="au">Dong P, Ding S, <strong>Wang G*</strong>. <span class="jn">bioRxiv</span> (Preprint)</p>
+        <h4><a href="https://advanced.onlinelibrary.wiley.com/doi/10.1002/advs.202505456" target="_blank">SURF: A self-supervised deep learning method for reference-free deconvolution in spatial transcriptomics</a></h4>
+        <p class="au">Liang Y, ..., <strong>Wang G*</strong>, Wang Y*, Guo Y*. <span class="jn">Advanced Science</span></p>
         <div class="meta"><span class="tag">Corresponding</span></div>
       </div>
 
@@ -1067,13 +1148,22 @@
       <h2 class="st">Lab Gallery</h2>
       <p class="ss">Life in the Wang Lab &mdash; work hard, play hard.</p>
     </div>
-    <div class="gg rv">
-      <div class="gi"><img src="photos/group-photo.jpg" alt="Group Photo"><div class="cap">Group Photo</div></div>
-      <div class="gi"><img src="photos/lab-dinner.jpg" alt="Lab Dinner"><div class="cap">Lab Dinner</div></div>
-      <div class="gi"><img src="photos/conference.jpg" alt="Conference"><div class="cap">Conference</div></div>
-      <div class="gi"><img src="photos/lab-outing.jpg" alt="Lab Outing"><div class="cap">Lab Outing</div></div>
-      <div class="gi"><img src="photos/celebration.jpg" alt="Celebration"><div class="cap">Celebration</div></div>
-      <div class="gi"><img src="photos/team-building.jpg" alt="Team Building"><div class="cap">Team Building</div></div>
+
+    <div class="gallery-wrap rv">
+      <div class="gallery-stage" id="gallery-stage">
+        <div class="gallery-item center" data-index="0"><img src="photos/group-photo.jpg" alt="Gallery image 1"></div>
+        <div class="gallery-item right" data-index="1"><img src="photos/lab-dinner.jpg" alt="Gallery image 2"></div>
+        <div class="gallery-item far-right" data-index="2"><img src="photos/conference.jpg" alt="Gallery image 3"></div>
+        <div class="gallery-item far-right" data-index="3"><img src="photos/lab-outing.jpg" alt="Gallery image 4"></div>
+        <div class="gallery-item far-left" data-index="4"><img src="photos/celebration.jpg" alt="Gallery image 5"></div>
+        <div class="gallery-item left" data-index="5"><img src="photos/team-building.jpg" alt="Gallery image 6"></div>
+      </div>
+
+      <div class="gallery-controls">
+        <button class="gallery-btn" id="gallery-prev" aria-label="Previous image">&#8249;</button>
+        <div class="gallery-dots" id="gallery-dots"></div>
+        <button class="gallery-btn" id="gallery-next" aria-label="Next image">&#8250;</button>
+      </div>
     </div>
   </div>
 </section>
@@ -1082,7 +1172,7 @@
   <div class="container">
     <div class="sh rv"><div class="sl">Software</div><h2 class="st">Tools &amp; Software</h2></div>
     <div class="sw rv"><div class="sw-i">&gt;_</div><div><h3>SURF</h3><p>A self-supervised deep learning method for reference-free deconvolution in spatial transcriptomics. SURF integrates high-dimensional gene data analysis with self-supervised deep learning to effectively model nonlinear gene interactions and leverage spot relationships.</p><div class="sw-l"><a href="https://github.com/metabomicslab/SURF" target="_blank">Source</a><a href="https://advanced.onlinelibrary.wiley.com/doi/10.1002/advs.202505456" target="_blank">Paper</a></div></div></div>
-    <div class="sw rv"><div class="sw-i">&gt;_</div><div><h3>snRNA-seq Workflow</h3><p>An optimized upstream analytical workflow for single-nucleus transcriptomics in main metabolic tissues (adipose tissue, muscle, liver, and hypothalamus). A standard protocol for researchers seeking to apply snRNA-seq to metabolic tissues.</p><div class="sw-l"><a href="https://metabomicslab.github.io/snRNAseq-analysis-workflow/" target="_blank">Website</a><a href="https://github.com/metabomicslab/snRNAseq-analysis-workflow" target="_blank">Source</a><a href="https://www.biorxiv.org/content/10.1101/2025.02.22.639604v1" target="_blank">Paper</a></div></div></div>
+    <div class="sw rv"><div class="sw-i">&gt;_</div><div><h3>snRNA-seq Workflow</h3><p>An optimized upstream analytical workflow for single-nucleus transcriptomics in main metabolic tissues (adipose tissue, muscle, liver, and hypothalamus). A standard protocol for researchers seeking to apply snRNA-seq to metabolic tissues.</p><div class="sw-l"><a href="https://metabomicslab.github.io/snRNAseq-analysis-workflow/" target="_blank">Website</a><a href="https://github.com/metabomicslab/snRNAseq-analysis-workflow" target="_blank">Source</a><a href="https://academic.oup.com/lifemeta/article/4/3/loaf010/8104468" target="_blank">Paper</a></div></div></div>
   </div>
 </section>
 
@@ -1105,8 +1195,107 @@
 
 <script>
 function cm(){document.querySelector('.nav-links').classList.remove('open')}
-const o=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('vis')})},{threshold:.08,rootMargin:'0px 0px -30px 0px'});
+
+const o=new IntersectionObserver(e=>{
+  e.forEach(x=>{
+    if(x.isIntersecting)x.target.classList.add('vis')
+  })
+},{threshold:.08,rootMargin:'0px 0px -30px 0px'});
 document.querySelectorAll('.rv').forEach(el=>o.observe(el));
+
+const galleryItems = Array.from(document.querySelectorAll('.gallery-item'));
+const dotsWrap = document.getElementById('gallery-dots');
+const prevBtn = document.getElementById('gallery-prev');
+const nextBtn = document.getElementById('gallery-next');
+let currentIndex = 0;
+let autoPlay = null;
+
+galleryItems.forEach((_, i) => {
+  const dot = document.createElement('div');
+  dot.className = 'gallery-dot';
+  dot.addEventListener('click', () => {
+    currentIndex = i;
+    updateGallery();
+    restartAutoplay();
+  });
+  dotsWrap.appendChild(dot);
+});
+
+function getRelativePosition(index, current, total) {
+  let diff = index - current;
+  if (diff > total / 2) diff -= total;
+  if (diff < -total / 2) diff += total;
+  return diff;
+}
+
+function updateGallery() {
+  const total = galleryItems.length;
+  galleryItems.forEach((item, i) => {
+    item.className = 'gallery-item';
+    const diff = getRelativePosition(i, currentIndex, total);
+
+    if (diff === 0) item.classList.add('center');
+    else if (diff === -1) item.classList.add('left');
+    else if (diff === 1) item.classList.add('right');
+    else if (diff < -1) item.classList.add('far-left');
+    else item.classList.add('far-right');
+
+    item.onclick = () => {
+      currentIndex = i;
+      updateGallery();
+      restartAutoplay();
+    };
+  });
+
+  Array.from(dotsWrap.children).forEach((dot, i) => {
+    dot.classList.toggle('active', i === currentIndex);
+  });
+}
+
+function nextGallery() {
+  currentIndex = (currentIndex + 1) % galleryItems.length;
+  updateGallery();
+}
+
+function prevGallery() {
+  currentIndex = (currentIndex - 1 + galleryItems.length) % galleryItems.length;
+  updateGallery();
+}
+
+function startAutoplay() {
+  stopAutoplay();
+  autoPlay = setInterval(() => {
+    nextGallery();
+  }, 3500);
+}
+
+function stopAutoplay() {
+  if (autoPlay) {
+    clearInterval(autoPlay);
+    autoPlay = null;
+  }
+}
+
+function restartAutoplay() {
+  startAutoplay();
+}
+
+prevBtn.addEventListener('click', () => {
+  prevGallery();
+  restartAutoplay();
+});
+
+nextBtn.addEventListener('click', () => {
+  nextGallery();
+  restartAutoplay();
+});
+
+const galleryWrap = document.querySelector('.gallery-wrap');
+galleryWrap.addEventListener('mouseenter', stopAutoplay);
+galleryWrap.addEventListener('mouseleave', startAutoplay);
+
+updateGallery();
+startAutoplay();
 </script>
 </body>
 </html>
